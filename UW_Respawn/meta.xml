@@ -1,0 +1,6 @@
+<meta>
+	<info author="kieranb, IIYAMA" type="script" name="Hospital Respawn" version="1.0.3" description="A magical pony, just kidding, it's a respawn script..." />
+	<!-- <min_mta_version server="1.5.5" client="1.5.5" />  -->
+	<script src="hospital.lua" type="server"/>
+	<script src="hospital_c.lua" type="client"/>
+</meta>
