@@ -1,0 +1,6 @@
+<meta>
+	<info author="M[e]D" description="3d ammo hud attached to player" type="script" version="1.0" />
+		<script src="client.lua" type="client"/>
+		<file src="number.ttf" type="client" />
+		
+</meta>
