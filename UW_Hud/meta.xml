@@ -1,0 +1,42 @@
+<meta>
+	<oop>true</oop>
+
+	<script src="barC.lua" type="client" cache="false" />
+	<script src="client.lua" type="client" cache="false" />
+
+	<file src="files/coin.png" cache="false"/>
+	<file src="files/bank.png" cache="false"/>
+	<file src="files/ibg.png" cache="false"/>
+	<file src="files/agua.png" cache="false"/>
+	<file src="files/burguer.png" cache="false"/>
+	<file src="files/clock.png" cache="false"/>
+	<file src="files/ID.png" cache="false"/>
+	<file src="files/star.png" cache="false"/>
+	<file src="files/level.png" cache="false"/>
+	<file src="files/logo.png" cache="false"/>
+	<file src="files/clan.png" cache="false"/>
+	<file src="files/fonte.ttf" cache="false"/>
+
+    <file src="files/avatars/0.png" cache="false"></file>
+    <file src="files/avatars/1.png" cache="false"></file>
+    <file src="files/avatars/2.png" cache="false"></file>
+    <file src="files/avatars/3.png" cache="false"></file>
+    <file src="files/avatars/4.png" cache="false"></file>
+    <file src="files/avatars/5.png" cache="false"></file>
+    <file src="files/avatars/6.png" cache="false"></file>
+    <file src="files/avatars/7.png" cache="false"></file>
+    <file src="files/avatars/8.png" cache="false"></file>
+    <file src="files/avatars/9.png" cache="false"></file>
+    <file src="files/avatars/10.png" cache="false"></file>
+    <file src="files/avatars/11.png" cache="false"></file>
+    <file src="files/avatars/12.png" cache="false"></file>
+    <file src="files/avatars/13.png" cache="false"></file>
+    <file src="files/avatars/14.png" cache="false"></file>
+    <file src="files/avatars/15.png" cache="false"></file>
+    <file src="files/avatars/16.png" cache="false"></file>
+    <file src="files/avatars/17.png" cache="false"></file>
+    <file src="files/avatars/18.png" cache="false"></file>
+    <file src="files/avatars/19.png" cache="false"></file>
+    <file src="files/avatars/20.png" cache="false"></file>
+
+</meta>
