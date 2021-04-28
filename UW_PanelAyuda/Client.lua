@@ -108,6 +108,7 @@ DGS = exports.dgs
 Panel= dgsCreateWindow(0.05,0.05,0.9,0.8,"Panel de ayuda Underworld",true)
 -- DGS:dgsCloseWindow(Panel
 DGS:dgsSetVisible ( Panel, false )
+dgsWindowSetCloseButtonEnabled(Panel,false)
 function PanelPrincipal()
 
 
@@ -226,11 +227,13 @@ addEventHandler ( "onClientResourceStart", getResourceRootElement(getThisResourc
 				for i,v in ipairs(DGS:dgsGetChildren(scrollpane)) do
 					destroyElement(v)
 				end
-			
+				DGS:dgsCreateLabel(5,5,90,20,"Nivel",false,scrollpane,tocolor(255,51,51,255),1,1,1,1,tocolor(0,0,0,255))
+				DGS:dgsCreateLabel(120,5,90,20,"Experiencia",false,scrollpane,tocolor(255,51,51,255),1,1,1,1,tocolor(0,0,0,255))
 				-- for every player in the server
 				for i,v in ipairs(Niveles) do
 					-- create a label with their name on the scrollpane
-					DGS:dgsCreateLabel(5,i*20,90,20,tostring(Niveles[i]),false,scrollpane)
+					DGS:dgsCreateLabel(120,i*20,90,20,tostring(Niveles[i]),false,scrollpane)
+					DGS:dgsCreateLabel(5,i*20,90,20,i,false,scrollpane)
 				end
 			-- end
 		end
