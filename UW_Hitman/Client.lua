@@ -32,7 +32,7 @@ function HitmanPanel()
 		for id, player in ipairs(getElementsByType("player")) do
 
 			local row = DGS:dgsGridListAddRow ( playerList )
-			if getElementData(player,"reward")>0 then
+			if getElementData(player,"reward") and getElementData(player,"reward")>0 then
 				DGS:dgsGridListSetItemText ( playerList, row, column, getPlayerName ( player ) )
 				-- DGS:dgsGridListSetItemText ( playerList, row, column, i )
 				DGS:dgsGridListSetItemText ( playerList, row, column2, getElementData( player,"reward" ) )
@@ -115,3 +115,4 @@ addEventHandler ( "onClientResourceStart", getResourceRootElement(getThisResourc
 			end
 		end
 	end
+
