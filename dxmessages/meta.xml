@@ -1,0 +1,16 @@
+<meta>
+	<info name="Notifications System x2" author="#BrosS" version="1.0.2" type="script" />
+	<script src="c.lua" type="client" />
+	<script src="s.lua" type="server" />
+	
+	<file src="files/font/font.ttf" />
+	
+	<file src="files/img/dx.png" />
+	<file src="files/img/info.png" />
+	<file src="files/img/warning.png" />
+	<file src="files/img/succes.png" />
+	<file src="files/img/error.png" />
+
+	<export function="outputClientDx" type="client" />
+	<export function="outputDx" type="server" />
+</meta>
