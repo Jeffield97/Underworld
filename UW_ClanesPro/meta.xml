@@ -1,0 +1,14 @@
+<meta>
+	<info author="aliradoy" version="1.0" type="script" name="Group_Systèm" description="group systeme by alitunisia (aliradoy,aliyazan)" />
+	<script src="client.lua" type="client" />
+	<script src="server.lua" type="server" />
+	<file src="aliradoy.png" />
+    <export function="sdas"/>
+	<export function="getGroupTurfColor"/>
+	<export function="getGroupChatColor"/>
+	<export function="getGroupChatTagColor"/>
+	<export function="getGroupTurfPoints" />
+	<export function="setGroupTurfPoints" />
+	<export function="isAccountBlocked" />
+	<export function="isSerialBlocked" /> 
+</meta>
