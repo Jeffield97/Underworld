@@ -1,0 +1,9 @@
+<meta>
+	<info author="Erhan" name="Bank System" version="1.1.0" type="script"/>
+
+    <script src="client.lua" type="client" />
+    <script src="server.lua" type="server" />
+<file src="IconsFonts/atmBG.png"/> 
+<file src="IconsFonts/klavye.png"/> 
+    <file src="IconsFonts/KeepCalmMedium.ttf"/>
+</meta>
