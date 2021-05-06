@@ -1,40 +1,113 @@
+-- loadstring(exports.dgs:dgsImportFunction())()
+
+-- function setupWeaponSelection (theResource )
+-- local screenW, screenH = guiGetScreenSize()
+
+	  -- local player= getLocalPlayer()
+
+	  -- Login_Windows(player,screenW,screenH)
+	  
+	  -- showCursor(true)
+	  
+-- end
+-- addEventHandler ( "onClientResourceStart", getResourceRootElement(getThisResource()), setupWeaponSelection )
+
+
+-- function Login_Windows(player,_x,_y)
+	-- local WindowsL=dgsCreateWindow ( (_x - 588) / 2, (_y - 317) / 2, 588, 317, "Login", false,_,_,_,_,_,tocolor(50,50,50,250))
+	-- local BtnRegistrar=dgsCreateButton(0.05,0.79,0.2,0.09,"Ingresar",true,WindowsL,_,_,_,_,_,_,tocolor(255,0,0,130))
+	
+	-- function Registrar()
+		-- if dgsGetType(source)=="dgs-dxbutton" then
+			-- outputChatBox("Registrando.....")
+			-- dgsCloseWindow(WindowsL)
+			-- Register_Windows(player,_x,_y)
+		-- end
+	-- end
+	-- addEventHandler ( "onDgsMouseClickDown", BtnRegistrar, Registrar )
+-- end
+
+-- function Register_Windows(player,_x,_y)
+	-- local WindowsR=dgsCreateWindow ( (_x - 588) / 2, (_y - 317) / 2, 588, 317, "Register", false,_,_,_,_,_,tocolor(50,50,50,250))
+	-- local BtnLogin=dgsCreateButton(0.05,0.79,0.2,0.09,"Regresar",true,WindowsR,_,_,_,_,_,_,tocolor(255,0,0,130))
+	
+	-- function Regresar()
+		-- if dgsGetType(source)=="dgs-dxbutton" then
+			-- outputChatBox("Volviendo...")
+			-- dgsCloseWindow(WindowsR)
+			-- Login_Windows(player,_x,_y)
+		-- end
+	-- end
+	-- addEventHandler ( "onDgsMouseClickDown", BtnLogin, Regresar )
+-- end
+
+-- loadstring(exports.dgs:dgsImportFunction())()-- load functions
+
+-- local sW, sH = guiGetScreenSize() -- get the screen size
+-- local blurbox = dgsCreateBlurBox(sW, sH) -- Create a blur Box
+-- local blurArea = dgsCreateImage(0,0,1,1,blurbox,true) -- --Blur Box Renderer
+
+-- Register_Windows = dgsCreateWindow (  0.2,0.2, 0.5,0.5, "Panel de Registro Underworld", true,blurArea,_,_,_,_,tocolor(50,50,50,250))
+
+-- DGS = exports.dgs --get exported functions from dgs
+
+-- local blurbox = DGS:dgsCreateBlurBox(600, 500) --Blur Box
+-- local blurArea = DGS:dgsCreateImage(200,200,600,500,blurbox,false)
+
+-- function getCam(commandName)
+	-- outputChatBox("Getting Camera de: "..getPlayerName(localPlayer))
+	-- local x, y, z, lx, ly, lz = getCameraMatrix ()
+	-- outputChatBox("Posición: "..x..","..y..","..z..","..lx..","..ly..","..lz)
+	-- local x, y, z, lx, ly, lz = getCameraMatrix (playerSource)
+	-- setTimer( function()
+		-- x, lx = x + 1, lx + 1
+		-- y, ly = y + 1, ly + 1
+		-- setCameraMatrix (x, y, z, lx, ly, lz)
+	-- end,60,100)
+	-- x, lx = x + 1, lx + 1
+	-- setCameraMatrix (x, y, z, lx, ly, lz)
+-- end
+-- addCommandHandler("g",getCam)
+
+
 loadstring(exports.dgs:dgsImportFunction())()
 
--- local positions={{343.81564331055,-2111.2065429688,26.016586303711,398.61254882812,-2028.5336914062,13.268853187561}}
-
-function AbrirLogin (localPlayer)
-local screenW, screenH = guiGetScreenSize()   
-	local player= getLocalPlayer() 
-	outputChatBox("Abriendo Login Join")
-	-- setPlayerHudComponentVisible ( "all",false)
-	vistas()
+function Uw_Login()
+	local screenW, screenH = guiGetScreenSize() 
+	outputChatBox("Login Iniciado!!")
+	local player = getLocalPlayer()
+	blurArea = CreateBlur(screenW,screenH)
+	Login(player,screenW, screenH)
+	Vista()
 	showCursor(true)
-	guiSetInputEnabled(true)
 	showChat(false)
-	
-	Login_Panel(player,screenW,screenH)
+	setPlayerHudComponentVisible ( "all",false)
+	guiSetInputEnabled(true)
+	-- CloseBlur(blurArea)
 end
-addEvent("AbrirLogin",true)
-addEventHandler("AbrirLogin",localPlayer,AbrirLogin)
--- addEventHandler ( "onClientResourceStart", getResourceRootElement(getThisResource()), AbrirLogin )
+-- addEventHandler("Uw_Login",true)
+addEventHandler ( "onClientResourceStart", getResourceRootElement(getThisResource()), Uw_Login )
 
-function Login_Panel(player,_x,_y)
-	local blurbox = dgsCreateBlurBox(_x,_y) --Blur Box
-	local blurArea = dgsCreateImage(0,0,1,1,blurbox,true)
-	-- Login_Windows = dgsCreateWindow ( (_x - 588) / 2, (_y - 317) / 2, 588, 317, "Login", true,blurArea,_,_,_,_,tocolor(50,50,50,250))
+
+function Login(player,_x,_y)
 	Login_Windows = dgsCreateWindow ( 0.5-(0.43/2), 0.5-(0.41/2), 0.43, 0.41, "Login", true,_,_,_,_,_,tocolor(50,50,50,250))
-	dgsAttachToAutoDestroy(blurArea,Login_Windows)
-	dgsAttachToAutoDestroy(blurbox,Login_Windows)
-	dgsSetLayer(blurArea,"bottom")
-	
 	dgsWindowSetCloseButtonEnabled ( Login_Windows, false)
 	dgsWindowSetSizable(Login_Windows,false)
 	dgsWindowSetMovable(Login_Windows,false)
 	
+	local lblUserL= dgsCreateLabel(0.032, 0.09, 0.3, 0.08,"Usuario",true,Login_Windows)
+	local txt_user= dgsCreateEdit( 0.032, 0.17, 0.3, 0.08, "", true,Login_Windows )
+	dgsEditSetMaxLength (txt_user,20)
+	
+	local lblUserL2= dgsCreateLabel(0.032, 0.39, 0.3, 0.08,"Contraseña",true,Login_Windows)
+	local txt_pass= dgsCreateEdit( 0.032, 0.47, 0.3, 0.08, "", true,Login_Windows )
+	dgsEditSetMaxLength (txt_user,20)
+	
 	local imgFondo = dgsCreateImage(0.57,-0.05,0.45,0.8,"Fondo.png",true,Login_Windows)
 	ap = false
 	byrk = 0
-	local TFondo= setTimer(function()
+
+	function Logo()
 		if ap == true then
 			byrk = byrk + 0.02
 			if byrk >= 1 then
@@ -47,17 +120,12 @@ function Login_Panel(player,_x,_y)
 			end		
 		end	
 		dgsSetAlpha ( imgFondo, byrk)
-		end,100,0)
+	end
+	addEventHandler ( "onClientRender", getRootElement(getThisResource()), Logo )
+
+	--BOTONES--
 	
-	local lblUserL= dgsCreateLabel(0.032, 0.09, 0.3, 0.08,"Usuario",true,Login_Windows)
-	local txt_user= dgsCreateEdit( 0.032, 0.17, 0.3, 0.08, "", true,Login_Windows )
-	dgsEditSetMaxLength (txt_user,20)
-	
-	local lblUserL2= dgsCreateLabel(0.032, 0.39, 0.3, 0.08,"Contraseña",true,Login_Windows)
-	local txt_pass= dgsCreateEdit( 0.032, 0.47, 0.3, 0.08, "", true,Login_Windows )
-	dgsEditSetMaxLength (txt_user,20)
-	
-	--Botones--
+	--Ingresar
 	BtnIngresar=dgsCreateButton(0.05,0.79,0.2,0.09,"Ingresar",true,Login_Windows,_,_,_,_,_,_,tocolor(255,0,0,130))
 	function Ingresar()	
 		if dgsGetType(source)=="dgs-dxbutton" then
@@ -69,6 +137,7 @@ function Login_Panel(player,_x,_y)
 	end
 	addEventHandler ( "onDgsMouseClickDown", BtnIngresar, Ingresar )
 	
+	--Invitado
 	BtnInvitado=dgsCreateButton(0.4,0.79,0.2,0.09,"Invitado",true,Login_Windows,_,_,_,_,_,_,tocolor(255,0,0,130))
 	function Invitado()
 		if dgsGetType(source)=="dgs-dxbutton" then
@@ -78,44 +147,21 @@ function Login_Panel(player,_x,_y)
 	end
 	addEventHandler ( "onDgsMouseClickDown", BtnInvitado, Invitado )
 	
-	
-	BtnRegistrarUser=dgsCreateButton(0.75,0.79,0.2,0.09,"Registrar",true,Login_Windows,_,_,_,_,_,_,tocolor(255,0,0,130))
-	function RegistrarUser()
+	--Registrar
+	BtnRegistro=dgsCreateButton(0.75,0.79,0.2,0.09,"Registrar",true,Login_Windows,_,_,_,_,_,_,tocolor(255,0,0,130))
+	function Registro()
 		if dgsGetType(source)=="dgs-dxbutton" then
-			outputChatBox("BtnRegistrarUser")
-			killTimer(TFondo)
+			outputChatBox("BtnRegistro")
 			dgsCloseWindow(Login_Windows)
-			Register_Panel(player,_x,_y)
+			Register(player,_x,_y)
+			removeEventHandler("onClientRender", getRootElement(getThisResource()), Logo) 
 		end
 	end
-	addEventHandler ( "onDgsMouseClickDown", BtnRegistrarUser, RegistrarUser )
-
-	--CERRAR LOGIN
-	function CerrarLogin()
-		outputChatBox("Cerrando Login")
-		setPlayerHudComponentVisible ( "all",true)
-		showChat(true)
-		showCursor(false)
-		guiSetInputEnabled(false)
-		setCameraTarget(player)
-		-- if isTimer(TVista) then
-			-- outputChatBox(tostring(isTimer(TFondo))
-			killTimer(TVista)
-			killTimer(TFondo)
-		-- end
-		-- if not Login_Panel then
-			dgsCloseWindow(Login_Windows)
-		-- end
-	end
-	addEvent("Close",true)
-	addEventHandler("Close",localPlayer,CerrarLogin)
-	-- addEventHandler("onClientResourceStop",resourceRoot,CerrarLogin)
-end
-
-
-function Register_Panel(player,_x,_y)
-
-	Register_Windows = dgsCreateWindow ( (_x - 656) / 2, (_y - 493) / 2, 656, 493, "Panel de Registro Underworld", false,_,_,_,_,_,tocolor(50,50,50,250))
+	addEventHandler ( "onDgsMouseClickDown", BtnRegistro, Registro )
+end	
+	
+function Register(player,_x,_y)
+Register_Windows = dgsCreateWindow ( (_x - 656) / 2, (_y - 493) / 2, 656, 493, "Panel de Registro Underworld", false,_,_,_,_,_,tocolor(50,50,50,250))
 	dgsWindowSetCloseButtonEnabled ( Register_Windows, false)
 	dgsWindowSetSizable(Register_Windows,false)
 	dgsWindowSetMovable(Register_Windows,false)
@@ -132,8 +178,7 @@ function Register_Panel(player,_x,_y)
 	LblAccount=dgsCreateLabel(0.02,0.13,0.1,0.05,"Usuario:",true,Register_Windows)
 	dgsSetFont (LblAccount, "default-bold" )
 	txtUser = dgsCreateEdit( 0.02, 0.17, 0.23, 0.05, "", true,Register_Windows )
-	-- dgsEditSetPlaceHolder( txtAccount, "Usuario" )
-	-- dgsEditSetCaretStyle( txtAccount, 1 )
+
 	dgsEditSetMaxLength (txtUser,20)
 	
 	LblEmail=dgsCreateLabel(0.32,0.13,0.1,0.05,"E-mail:",true,Register_Windows)
@@ -220,10 +265,23 @@ function Register_Panel(player,_x,_y)
 	dgsLabelSetColor(LblTerminos17,200,200,200,255)
 	dgsLabelSetColor(LblTerminos18,200,200,200,255)
 
+--BOTONES--
 
-	--Registrar
+--Regresar
+	BtnRegresar=dgsCreateButton(0.02,0.89,0.2,0.05,"Regresar",true,Register_Windows,_,_,_,_,_,_,tocolor(255,0,0,130))
+	function Regresar ()
+		if dgsGetType(source) == "dgs-dxbutton" then
+			outputChatBox(dgsGetText(source))
+			dgsCloseWindow(Register_Windows)
+			Login(player,_x,_y)
+			-- triggerServerEvent ( "Registrar", resourceRoot,player,User,Pass,Email,Item_Edad,Item_Sexo,Item_Raza )
+
+		end
+	end
+	addEventHandler ( "onDgsMouseClickDown", BtnRegresar, Regresar )
+
+--Registrar
 	BtnRegistrar=dgsCreateButton(0.43,0.89,0.2,0.05,"Registrar",true,Register_Windows,_,_,_,_,_,_,tocolor(255,0,0,130))
-	-- setElementID(BtnRegistrar,"Btn","Registrar")
 	function Registrar ()
 		if dgsGetType(source) == "dgs-dxbutton" then
 			local User= dgsGetText(txtUser)
@@ -251,7 +309,7 @@ function Register_Panel(player,_x,_y)
 			elseif Raza <0 then
 				exports["_infobox"]:addNotification("Selecciona una raza para tu jugador","error")
 			else
-				exports["_infobox"]:addNotification("Correcto!","success")
+				-- exports["_infobox"]:addNotification("Correcto!","success")
 				local Item_Edad = dgsComboBoxGetItemText(CbxEdad,Edad)
 				local Item_Sexo = dgsComboBoxGetItemText(CbxSexo,Sexo)
 				local Item_Raza = dgsComboBoxGetItemText(CbxRaza,Raza)
@@ -260,27 +318,10 @@ function Register_Panel(player,_x,_y)
 		end
 	end
 	addEventHandler ( "onDgsMouseClickDown", BtnRegistrar, Registrar )
-	
-	--Regresar
-	BtnRegresar=dgsCreateButton(0.02,0.89,0.2,0.05,"Regresar",true,Register_Windows,_,_,_,_,_,_,tocolor(255,0,0,130))
-	function Regresar ()
-		if dgsGetType(source) == "dgs-dxbutton" then
-			outputChatBox(dgsGetText(source))
-			dgsCloseWindow(Register_Windows)
-			Login_Panel(player,_x,_y)
-		end
-	end
-	addEventHandler ( "onDgsMouseClickDown", BtnRegresar, Regresar )
-end
-
-function isValidMail( mail )
-    assert( type( mail ) == "string", "Bad argument @ isValidMail [string expected, got " .. tostring( mail ) .. "]" )
-    return mail:match( "[A-Za-z0-9%.%%%+%-]+@[A-Za-z0-9%.%%%+%-]+%.%w%w%w?%w?" ) ~= nil
 end
 
 
-
-function vistas()
+function Vista()
 	local timerpos=0
 	setPlayerHudComponentVisible ( "all",false)
 	setCameraMatrix(2089.6452636719,-2388.6723632812,42.590339660645,1996.0173339844,-2419.484375,25.724863052368)
@@ -303,7 +344,50 @@ function vistas()
 		timerpos=timerpos+1
 	end,10000,0)
 end
--- addEvent("Vistas",true)
--- addEvent
 
+function CerrarLogin()
+	killTimer(TVista)
+	CloseBlur()
+	setCameraTarget(getLocalPlayer())
+	showCursor(false)
+	showChat(true)
+	setPlayerHudComponentVisible ( "all",true)
+	guiSetInputEnabled(false)
+	dgsCloseWindow(Login_Windows)
+	removeEventHandler("onClientRender", getRootElement(getThisResource()), Logo) 
+	-- outputChatBox(tostring(check))
+end
+addEvent("CerrarLogin",true)
+addEventHandler("CerrarLogin",getRootElement(getThisResource()),CerrarLogin)
 
+function CreateBlur(_x,_y)
+--Fondo Blur--
+	local blurbox = dgsCreateBlurBox(_x,_y) --Blur Box
+	local blurArea = dgsCreateImage(0,0,1,1,blurbox,true)
+	dgsSetLayer(blurArea,"bottom")
+	return blurArea
+	
+end
+
+function CloseBlur()
+	destroyElement(blurArea)
+end
+
+function isValidMail( mail )
+    assert( type( mail ) == "string", "Bad argument @ isValidMail [string expected, got " .. tostring( mail ) .. "]" )
+    return mail:match( "[A-Za-z0-9%.%%%+%-]+@[A-Za-z0-9%.%%%+%-]+%.%w%w%w?%w?" ) ~= nil
+end
+
+function CerrarRegistro()
+	killTimer(TVista)
+	dgsCloseWindow(Register_Windows)
+	outputChatBox("Cerrando panel registro")
+	CloseBlur()
+	setCameraTarget(getLocalPlayer())
+	showCursor(false)
+	showChat(true)
+	setPlayerHudComponentVisible ( "all",true)
+	guiSetInputEnabled(false)
+end
+addEvent("CerrarRegistro",true)
+addEventHandler("CerrarRegistro",getRootElement(getThisResource()),CerrarRegistro)
