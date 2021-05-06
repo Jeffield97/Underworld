@@ -97,6 +97,7 @@ function Registrar(player,User,Pass,Email,Edad,Sexo,Raza)
 				outputChatBox("#d1ebf7Tus datos de registro son",player,0,0,0,true)
 				outputChatBox("#d1ebf7Usuario: #19f730"..User,player,0,0,0,true)
 				outputChatBox("#d1ebf7Contraseña: #19f730"..Pass,player,0,0,0,true)
+				logIn (player,account,Pass)
 				triggerClientEvent ( player, "CerrarRegistro",player)
 			end
 		else
@@ -107,7 +108,7 @@ function Registrar(player,User,Pass,Email,Edad,Sexo,Raza)
 	end
 end
 addEvent("Registrar",true)
-addEventHandler("Registrar",getRootElement,Registrar)
+addEventHandler("Registrar",resourceRoot,Registrar)
 
 
 function ammountAccount(thePlayer,commandName)
@@ -117,3 +118,15 @@ function ammountAccount(thePlayer,commandName)
 	outputChatBox("Número de cuentas:"..#accs)
 end
 addCommandHandler("b",ammountAccount)
+
+addEventHandler( "onResourceStart", resourceRoot,
+	function( )
+		local players = getElementsByType( 'player' )
+		setTimer( function( )
+			for i=1, #players do 
+				logOut( players[i] )
+				-- triggerClientEvent( players[i], "login:abrirLogin", players[i] )
+			end
+		end, 1000, 1 )
+	end
+)
