@@ -25,6 +25,8 @@ function Transformar()
 	setGameSpeed(1.30)
 	Effect()
 	setElementData( localPlayer, "WALLRUN:autorized",true)
+	triggerServerEvent("setAnimation",resourceRoot,localPlayer,"freeweights","gym_free_a")
+	-- addEventHandler("onClientRender", getRootElement(), Falling) 	
 	------
 	if isTimer(TimerRest) then
 		killTimer(TimerRest)
@@ -35,6 +37,8 @@ function Transformar()
 			outputChatBox("Tiempo restante: "..TimeTrans)
 			TimeTrans=TimeTrans-1
 			dgsProgressBarSetProgress(progressbar,(TimeTrans*100/TimeCalulated))
+
+
 		else
 			
 			Destransformar()
@@ -52,6 +56,7 @@ function Destransformar()
 	setGameSpeed(1)
 	DestroyEffect()
 	setElementData( localPlayer, "WALLRUN:autorized",false)
+	-- removeEventHandler("onClientRender", getRootElement(), Falling) 
 	------
 	-- if isTimer(TimeTrans) then
 	killTimer(TimerTrans)
@@ -122,7 +127,7 @@ end
 --********************************
 --**CANCELAR DAÑO AL SUPER SALTO
 function GodJump ()        
-	if ( isPedDoingTask ( getLocalPlayer(), "TASK_COMPLEX_IN_AIR_AND_LAND" ) and getElementData(localPlayer,"Transformed")== true ) then
+	if ( isPedDoingTask ( localPlayer, "TASK_COMPLEX_IN_AIR_AND_LAND" ) and getElementData(localPlayer,"Transformed")== true ) then
 		--outputChatBox ( getPlayerName ( getLocalPlayer() ) .. " está saltando!" )
 		triggerServerEvent("setAnimation",resourceRoot,localPlayer,"bsktball","BBALL_Dnk_Lnd")
 		cancelEvent()
@@ -158,3 +163,13 @@ addEventHandler("onClientPreRender", root,
 		end		
 	end
 )
+
+-- function Falling()
+	-- if isPedDoingTask ( localPlayer, "TASK_SIMPLE_IN_AIR" ) and getElementData(localPlayer,"Transformed")== true  then
+	-- if isPedDoingTask ( localPlayer, "TASK_SIMPLE_JUMP" ) and getElementData(localPlayer,"Transformed")== true  then
+		-- triggerServerEvent("setAnimation",resourceRoot,localPlayer,"bsktball","BBALL_Dnk_Lnd")
+		-- outputChatBox("Cayendooo!!!")
+		-- triggerServerEvent("setAnimation",resourceRoot,localPlayer,"parachute","para_steerl")
+	-- end
+-- end
+	
