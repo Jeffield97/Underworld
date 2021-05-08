@@ -20,6 +20,11 @@ function Transformar()
 	setElementData(localPlayer,"Transformed",true)
 	------
 	triggerServerEvent("setWings",resourceRoot,localPlayer)
+	setWorldSpecialPropertyEnabled( "extrajump",true)
+	setWorldSpecialPropertyEnabled( "snipermoon ",true)
+	setGameSpeed(1.30)
+	Effect()
+	setElementData( localPlayer, "WALLRUN:autorized",true)
 	------
 	if isTimer(TimerRest) then
 		killTimer(TimerRest)
@@ -42,6 +47,11 @@ function Destransformar()
 	setElementData(localPlayer,"Transformed",false)
 	------
 	triggerServerEvent("deleteWings",resourceRoot,localPlayer)
+	setWorldSpecialPropertyEnabled( "extrajump",false)
+	setWorldSpecialPropertyEnabled( "snipermoon ",false)
+	setGameSpeed(1)
+	DestroyEffect()
+	setElementData( localPlayer, "WALLRUN:autorized",false)
 	------
 	-- if isTimer(TimeTrans) then
 	killTimer(TimerTrans)
@@ -69,6 +79,8 @@ end
 addEventHandler("onClientResourceStart",getResourceRootElement(getThisResource()),onStart)
 
 function Status()
+	
+	
 	progressbar = dgsCreateProgressBar(0.45,0.97, 0.1, 0.025, true,_,_,_,_,tocolor(200,40,40,255)) 
 	dgsProgressBarSetProgress(progressbar,100)
 	LblStatus= dgsCreateLabel(0.38,0.15,0.1,0.1,"Power",true,progressbar)
@@ -81,3 +93,68 @@ function Status()
 	-- radius = 0.2,
 	-- thickness = 0.05})
 end
+
+
+function Effect()
+		--Creación de efecto al transformarse
+			fxs=createEffect ("teargas", Vector3( getElementPosition( getLocalPlayer() ) ), 0, 0, 0)
+			fxs2=createEffect ("teargas", Vector3( getElementPosition( getLocalPlayer() ) ), 0, 0, 0)
+			setEffectDensity(fxs, 1)
+			attachEffect(fxs, localPlayer, Vector3(0, -0.35, 0.3))
+			attachEffect(fxs2, localPlayer, Vector3(0, 0.35, 0.3))
+			setTimer(function()	
+					DestroyEffect()
+			end,1000,1)
+end
+
+function DestroyEffect()
+	--if(fxs) then
+	local effects={}
+	effects=getElementsByType("effect")
+	for fx, info in pairs(effects) do
+		destroyElement(info)
+	end	
+		
+		-- destroyElement(fxs2)
+	-- end 
+end
+--********************************
+--********************************
+--**CANCELAR DAÑO AL SUPER SALTO
+function GodJump ()        
+	if ( isPedDoingTask ( getLocalPlayer(), "TASK_COMPLEX_IN_AIR_AND_LAND" ) and getElementData(localPlayer,"Transformed")== true ) then
+		--outputChatBox ( getPlayerName ( getLocalPlayer() ) .. " está saltando!" )
+		triggerServerEvent("setAnimation",resourceRoot,localPlayer,"bsktball","BBALL_Dnk_Lnd")
+		cancelEvent()
+		
+	end
+end
+addEventHandler ( "onClientPlayerDamage", root, GodJump )
+
+--FUNCIÓN PARA ATACHAR EFECTOS
+local attachedEffects = {}
+
+-- Taken from https://wiki.multitheftauto.com/wiki/GetElementMatrix example
+function getPositionFromElementOffset(element,offX,offY,offZ)
+	local m = getElementMatrix ( element )  -- Get the matrix
+	local x = offX * m[1][1] + offY * m[2][1] + offZ * m[3][1] + m[4][1]  -- Apply transform
+	local y = offX * m[1][2] + offY * m[2][2] + offZ * m[3][2] + m[4][2]
+	local z = offX * m[1][3] + offY * m[2][3] + offZ * m[3][3] + m[4][3]
+	return x, y, z  -- Return the transformed point
+end
+
+function attachEffect(effect, element, pos)
+	attachedEffects[effect] = { effect = effect, element = element, pos = pos }
+	addEventHandler("onClientElementDestroy", effect, function() attachedEffects[effect] = nil end)
+	addEventHandler("onClientElementDestroy", element, function() attachedEffects[effect] = nil end)
+	return true
+end
+
+addEventHandler("onClientPreRender", root, 	
+	function()
+		for fx, info in pairs(attachedEffects) do
+			local x, y, z = getPositionFromElementOffset(info.element, info.pos.x, info.pos.y, info.pos.z)
+			setElementPosition(fx, x, y, z)
+		end		
+	end
+)

@@ -28,7 +28,12 @@ end
 addEvent("deleteWings",true)
 addEventHandler("deleteWings", getResourceRootElement(getThisResource()) ,deleteWings)
 
-
+--ASIGNAR ANIMACIÓN
+function setAnimation(source,anim,sanim)
+setPedAnimation(source, anim, sanim,-1, false, true, false, false)
+end
+addEvent("setAnimation",true)
+addEventHandler("setAnimation",resourceRoot,setAnimation)
 
 
 
