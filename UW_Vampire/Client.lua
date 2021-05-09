@@ -102,8 +102,8 @@ end
 
 function Effect()
 		--Creación de efecto al transformarse
-			fxs=createEffect ("teargas", Vector3( getElementPosition( getLocalPlayer() ) ), 0, 0, 0)
-			fxs2=createEffect ("teargas", Vector3( getElementPosition( getLocalPlayer() ) ), 0, 0, 0)
+			fxs=createEffect ("blood_heli", Vector3( getElementPosition( getLocalPlayer() ) ), 0, 0, 0)
+			fxs2=createEffect ("blood_heli", Vector3( getElementPosition( getLocalPlayer() ) ), 0, 0, 0)
 			setEffectDensity(fxs, 1)
 			attachEffect(fxs, localPlayer, Vector3(0, -0.35, 0.3))
 			attachEffect(fxs2, localPlayer, Vector3(0, 0.35, 0.3))
