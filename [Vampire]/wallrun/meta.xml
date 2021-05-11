@@ -1,0 +1,12 @@
+<meta>
+	<info author="KaMiKaZe" version="2.0" name="Wall Run" description="Wall Run Resource" type="script" />
+	<script src="server.lua" type="server" />
+	<script src="client.lua" type="client" />
+
+	<file src="ifp/wallrun.ifp" />			
+
+	<export function="isPlayerAutorized" type="shared" /> <!-- Return true if player is autorized to do wall run, false otherwise -->
+	<export function="setPlayerAutorized" type="shared" /> <!-- Autorize a player to do wall run. Syntax: SERVER: setPlayerAutorized( player, bool ) CLIENT: setPlayerAutorized( bool ) -->
+	<export function="isPlayerDoingWallRun" type="shared" /> <!-- Return true if player is doing wall run, false otherwise -->		
+	
+</meta>
