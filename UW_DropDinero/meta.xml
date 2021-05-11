@@ -1,0 +1,7 @@
+<meta>
+    <info author="turret001" type="script" name="drop" version="1.1" />
+	<script src="s.lua" type="server"/>
+	<!-- <script src="c.lua" type="client"/> -->
+
+
+</meta>
