@@ -1,0 +1,6 @@
+<meta>
+    <info author="pc_" version="1.0.0" type="script" name="Wolfman" description="SOX" showInResourceBrowser="true" />
+    <script src="Wolfman.lua" type="client" />
+    <file src="Wolfman.txd" />
+    <file src="Wolfman.dff" />
+</meta>

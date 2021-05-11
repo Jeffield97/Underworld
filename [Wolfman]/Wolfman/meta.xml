@@ -1,0 +1,7 @@
+<meta>
+    <info author="pc_hunter" version="1.0" description="Descripción de la plantilla" type="script" />
+    <min_mta_version client="1.5.7-9.19626"></min_mta_version>
+    <script src="Server.lua" type="server" />
+    <script src="Client.lua" type="client" />
+    <!-- <file src="Fondo.png"/> -->
+</meta>
