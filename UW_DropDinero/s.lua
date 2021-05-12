@@ -10,7 +10,7 @@ function createDropAt(x, y, z, money,pSource)
         --[[ write some data with key "money_amount" to our marker, so
              when we pick it up, we can read that value --]]
         setElementData( drop, "money_amount", money )
-		setElementData(drop,"owner",pSource)
+		setElementData(drop,"owner",getPlayerName(pSource))
 		setElementData(pSource,"droped",true)
 		outputChatBox("Owner seteado: "..getPlayerName(pSource))
         -- setObjectScale (canta, 2)
@@ -55,8 +55,10 @@ function MarkerHit( hitElement, matchingDimension )
 		local owner = getElementData(source,"owner")
 		outputChatBox("Dinero de "..tostring(owner))
 		givePlayerMoney ( hitElement, money )
-		setElementData(owner,"droped",false)
-
+		if owner then
+			setElementData(getPlayerFromName(owner),"droped",false)
+		end
+		
 		destroyElement (source)
 		
 		
