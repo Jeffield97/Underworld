@@ -1,0 +1,4 @@
+<meta>
+<info author="Cyan" version="1.0" type="script" />
+<script src="local_chat.lua" type="server" />
+</meta>
