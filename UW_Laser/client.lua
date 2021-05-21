@@ -47,7 +47,7 @@ addEventHandler("onClientResourceStart", getRootElement(), function(res)
 end )
 addEventHandler("onClientResourceStop", getRootElement(), function(res)
 	if res == getThisResource() then
-		outputChatBox("unloaded laserpointer", 245,0,0)
+		outputChatBox("Laser apagado", 245,0,0)
 		SetLaserEnabled(localPlayer, false)		
 	end
 end )
@@ -198,7 +198,7 @@ function ToggleLaserEnabled(cmd)
 	player = localPlayer
 	if IsLaserEnabled(player) == false then	
 		SetLaserEnabled(player, true)
-		outputChatBox("Lacer encendido", 245,0,0)
+		outputChatBox("Laser encendido", 245,0,0)
 	else
 		SetLaserEnabled(player, false)
 		outputChatBox("Laser apagado", 245,0,0)
@@ -229,7 +229,7 @@ function ChangeLaserColor(cmd, r,g,b,a)
 			end
 		end	
 	end
-	outputChatBox("Invalid colors: (0-255) usage: /" ..CMD_LASERCOLOR.. " r g b a", 245,0,0)
+	outputChatBox("Sintaxis: (0-255) usage: /" ..CMD_LASERCOLOR.. " r g b a", 245,0,0)
 	return false
 end
 addCommandHandler(CMD_LASER, ToggleLaserEnabled)
