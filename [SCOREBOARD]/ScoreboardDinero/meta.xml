@@ -1,0 +1,4 @@
+<meta>	
+  <info author="Gefotrce" name="scoreboard_PlayTime" version="1.2" type="script" description="fix it save Money/account" />
+	<script src="Money.lua" type="server" />
+</meta>
