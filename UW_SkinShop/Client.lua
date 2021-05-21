@@ -25,6 +25,8 @@ function WindowSkin()
 	outputChatBox("Interfaz Creada")
 	-- local material = dgsCreate3DInterface(0,0,4,2,2,400,400,tocolor(255,255,255,255),0,1,0)
 	local panelSkin=dgsCreateWindow ( 0.7, 0.21, 0.17, 0.59, "Selecciona tu skin", true )
+	dgsWindowSetSizable ( panelSkin, false )
+	dgsWindowSetMovable ( panelSkin, false )
 	local TabSkins= dgsCreateTabPanel (0,0,1,0.935,true,panelSkin)
 	local TabMale= dgsCreateTab("Masculinos",TabSkins)
 	local TabFemale= dgsCreateTab("Femeninos",TabSkins)
@@ -161,17 +163,22 @@ end
 
 
 local playerMarker = createMarker(1146.5947265625, -1514.9794921875, 14.696875, "cylinder", 0.5, 255,0,37, 200)
-local ClothPed = createPed ( 257,  1148.40625, -1516.8125, 15.796875 )
+local ClothPed = createPed ( 256,  1148.40625, -1516.8125, 15.796875)
 --setElementInterior (ClothPed, 1, 294.94079589844, -40.216415405273, 1001.515625)
 setElementRotation(ClothPed,  0, 0, 47.233703613281)
 setPedVoice(ClothPed, "PED_TYPE_ENABLED")
 setElementFrozen (ClothPed, true)
 setElementDimension (ClothPed, 0)
+
+function cancelPedDamage()
+	cancelEvent() 
+end
+addEventHandler("onClientPedDamage", ClothPed, cancelPedDamage)
+
 local font = dxCreateFont('Blacklist.ttf', 80, false, 'antialiased')
 
 addEventHandler("onClientRender", root,
 function()
 	dxDrawTextOnElement(ClothPed,"Skins",2.5,15,0,0,0,255,1.02,font)
 	dxDrawTextOnElement(ClothPed,"Skins",2.5,15,10,188,255,255,1,font)
-	
 end)
