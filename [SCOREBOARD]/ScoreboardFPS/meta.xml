@@ -1,0 +1,8 @@
+<meta>
+
+	<info author="eXo|dragon" description="Adds the client's frames per second to the scoreboard" type="script" version="1.0.0" />
+
+	<script src="scorefps_server.lua" type="server"/>
+	<script src="scorefps_client.lua" type="client"/>
+	
+</meta>
