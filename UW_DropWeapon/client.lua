@@ -156,7 +156,7 @@ function dropWeapon(cmd,ammo,state)
 	spamTimer=setTimer(function() end,500,1)
 	local team = getPlayerTeam(localPlayer)
 	if team and bannedTeams[getTeamName(team)] and bannedTeamsEnabled then
-		outputChatBox("You cannot drop weapons while in a gang/squad",255,0,0)
+		outputChatBox("No puedes soltar weapons",255,0,0)
 		return
 	end
 	local slot = getPedWeaponSlot(localPlayer)
@@ -222,7 +222,7 @@ addEventHandler("onClientRender", getRootElement(),
 
 			sx,sy = screenWidth/2, screenHeight/2
 
-			local str = getPedWeaponSlot(localPlayer) == getSlotFromWeapon(weaponid) and "swap weapons" or "pickup weapon"
+			local str = getPedWeaponSlot(localPlayer) == getSlotFromWeapon(weaponid) and "recoger arma" or "recoger arma"
 			
 			dxDrawRectangle(sx-80, sy-20, 160, 85, tocolor(0, 0, 0, 128))
 
@@ -237,7 +237,7 @@ addEventHandler("onClientRender", getRootElement(),
 				dxDrawText(tostring(ammo),sx, sy+53, sx, sy+53,tocolor(255,255,255,255), 1, "default-bold", "center", "center")
 			end
 
-			dxDrawText("Use 'k' to " .. str,sx, sy-18, sx, sy-18,tocolor(255,255,50,255), 1, "default-bold", "center")
+			dxDrawText("Presiona 'k' " .. str,sx, sy-18, sx, sy-18,tocolor(255,255,50,255), 1, "default-bold", "center")
 		end
 	end
 )
