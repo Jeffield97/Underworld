@@ -24,25 +24,29 @@ end
 
 function createDropCommand(pSource, cmd, money)
 
-	if tonumber(money) > getPlayerMoney(pSource) then
-		outputChatBox("No tienes suficiente dinero!")
-	else
-		if getElementData(pSource,"droped") then
-			outputChatBox("Ya tienes dinero lanzado!!")
-			
+	if money then
+		if tonumber(money) > getPlayerMoney(pSource) then
+			outputChatBox("No tienes suficiente dinero!")
 		else
+			if getElementData(pSource,"droped") then
+				outputChatBox("Ya tienes dinero lanzado!!",pSource)
+				
+			else
 
-		 local matrix = getElementMatrix(pSource)
-			nx = 0 * matrix[1][1] + 2 * matrix[2][1] + 0 * matrix[3][1] + 1 * matrix[4][1]
-			ny = 0 * matrix[1][2] + 2 * matrix[2][2] + 0 * matrix[3][2] + 1 * matrix[4][2]
-			nz = 0 * matrix[1][3] + 2 * matrix[2][3] + 0 * matrix[3][3] + 1 * matrix[4][3]
-			setPedAnimation(pSource, "strip", "ply_cash",-1,false,true,true,false)
-			takePlayerMoney(pSource,money)
-			createDropAt(nx,ny,nz,money,pSource)
+			 local matrix = getElementMatrix(pSource)
+				nx = 0 * matrix[1][1] + 2 * matrix[2][1] + 0 * matrix[3][1] + 1 * matrix[4][1]
+				ny = 0 * matrix[1][2] + 2 * matrix[2][2] + 0 * matrix[3][2] + 1 * matrix[4][2]
+				nz = 0 * matrix[1][3] + 2 * matrix[2][3] + 0 * matrix[3][3] + 1 * matrix[4][3]
+				setPedAnimation(pSource, "strip", "ply_cash",-1,false,true,true,false)
+				takePlayerMoney(pSource,money)
+				createDropAt(nx,ny,nz,money,pSource)
+			end
 		end
+	else
+		outputChatBox("Sintaxis: /dardinero cantidad",pSource)
 	end
 end
-addCommandHandler("createdrop", createDropCommand)
+addCommandHandler("dardinero", createDropCommand,_,true)
 
 
 
