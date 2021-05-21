@@ -1,0 +1,210 @@
+<!--
+
+<°))><
+
+Public Services - Shop map
+(c) 2008 mabako network. All Rights reserved.
+
+-->
+
+<map>
+	<!-- Food shops -->
+	<!--
+		id = the name of the image in images/ammu/<id>.png
+		name = the name to be shown
+		health = the health to give to the player
+		price = ...
+	
+	-->
+	<!-- BurgerShot -->
+	<shop	id="FDBURG"	type="food"	name="BurgerShot"	posX="377"	posY="-68"	posZ="1001.5"	rotation="0"	interior="10"	rows="2"	columns="2">
+		<article	id="BURLOW"	name="Moo Kids Meal"		price="2"	health="20"/>
+		<article	id="BURMED"	name="Beef Tower"		price="5"	health="40"/>
+		<article	id="BURHIG"	name="Meat Stack"		price="10"	health="70"/>
+		<article	id="BURHEAL"	name="Salad Meal"		price="5"	health="40"/>
+	</shop>
+	
+	<!-- Cluckin' Bell -->
+	<shop	id="FDCHICK"	type="food"	name="Cluckin' Bell"	posX="370"	posY="-6.5"	posZ="1001.85"	rotation="0"	interior="9"	rows="2"	columns="2">
+		<article	id="CLULOW"	name="Cluckin' Little Meal"	price="2"	health="20"/>
+		<article	id="CLUMED"	name="Cluckin' Big Meal"	price="5"	health="40"/>
+		<article	id="CLUHIG"	name="Cluckin' Huge Meal"	price="10"	health="70"/>
+		<article	id="CLUHEAL"	name="Salad Meal"		price="10"	health="40"/>
+	</shop>
+	
+	<!-- The Well Stacked Pizza Co. -->
+	<shop	id="FDPIZA"	type="food"	name="Well Stacked Pizza Co."	posX="374"	posY="-119"	posZ="1001.5"	rotation="0"	interior="5"	rows="2"	columns="2">
+		<article	id="PIZLOW"	name="Buster"			price="2"	health="20"/>
+		<article	id="PIZMED"	name="Double D-Luxe"		price="5"	health="40"/>
+		<article	id="PIZHIG"	name="Full Rack"		price="10"	health="70"/>
+		<article	id="PIZHEAL"	name="Salad Meal"		price="10"	health="40"/>
+	</shop>
+	
+	<!-- Ammu-Nation -->
+	<!--
+		id = the name of the image in images/ammu/<id>.png
+		name = the name to be shown
+		weaponid = the real ID of the weapon, see http://development.mtasa.com/index.php?title=Weapons
+		ammo = ...; don't add if it's melee
+		price = ...
+	-->
+	<!-- Ammu-Nation 1
+		- Los Santos, Market-->
+	<shop	id="AMMUN1"	type="ammu"	name="Ammu-Nation"	posX="314.25918579102"	posY="-133.65084838867"	posZ="999.6015625"	rotation="270"	interior="7"	rows="3"	columns="3">
+
+		<article	id="COLT45"	name="Pistola"			price="250"	weaponid="22"	ammo="50"/>
+		<article	id="SILENCED"	name="Nbb LS6904"		price="500"	weaponid="23"	ammo="50"/>
+		<article	id="DEAGLE"	name="Magnun"		price="2500"	weaponid="24"	ammo="50"/>
+		<article	id="SHOTGUN"	name="Shotgun"			price="4000"	weaponid="25"	ammo="100"/>
+		<article	id="SAWNOFF"	name="Sawn-Off"			price="3000"	weaponid="26"	ammo="100"/>
+		<article	id="COMBAT"	name="Combat Shotgun"		price="5000"	weaponid="27"	ammo="50"/>
+		<article	id="TEC9"	name="Tec-9"			price="5000"	weaponid="32"	ammo="1000"/>
+		<article	id="MICROUZI"	name="Uzi"			price="4000"	weaponid="28"	ammo="1000"/>
+		<article	id="MP5"	name="MP5"			price="5000"	weaponid="29"	ammo="1000"/>
+	
+	</shop>
+	
+	<shop	id="AMMUN2"	type="ammu"	name="Ammu-Nation"	posX="308.19973754883"	posY="-141.46255493164"	posZ="999.6015625"	rotation="180"	interior="7"	rows="4"	columns="3">
+		
+		<article	id="BAT"	name="Bat"			price="100"	weaponid="5"	ammo="1"/>
+		<article	id="SHOVEL"	name="Pala"		price="200"	weaponid="6"	ammo="1"/>
+		<article	id="NITESTICK"	name="Tolete"		price="200"	weaponid="3"	ammo="1"/>
+		<article	id="KATANA"	name="Katana"			price="80000"	weaponid="8"	ammo="1"/>
+		<article	id="CHAINSAW"	name="Motosierra"		price="80000"	weaponid="9"	ammo="1"/>
+		<article	id="SPRAYCAN"	name="Spray"			price="10000"	weaponid="41"	ammo="1000"/>
+		<article	id="FIREEXT"	name="Extintor"			price="15000"	weaponid="42"	ammo="1000"/>
+		<article	id="CAMERA"	    name="Camara"		    price="500"	weaponid="43"	ammo="10"/>
+		<article	id="NVGOGGLES"	name="Vision nocturna"		price="3000"	weaponid="44"	ammo="1"/>
+		<article	id="IRGOGGLES"	name="Vision termica"		price="3000"	weaponid="45"	ammo="1"/>
+		<article	id="PARACHUTE"	name="Paracaídas"			price="100"	weaponid="46"	ammo="1"/>
+		<article	id="JETPACK"	name="Jetpack"			price="500000"	fuel="500"/>
+
+	</shop>	
+
+	<shop	id="AMMUN3"	type="ammu"	name="Ammu-Nation"	posX="313.58651733398"	posY="-138.83551025391"	posZ="1004.0625"	rotation="270"	interior="7"	rows="3"	columns="4"> -->
+		
+		<article	id="AK47"	name="Ak-47"			price="9000"	weaponid="30"	ammo="1000"/>
+		<article	id="M4"	name="M4"		price="8500"	weaponid="31"	ammo="1000"/>
+		<article	id="RIFLE"	name="Rifle"    	price="1500"	weaponid="33"	ammo="50"/>
+		<article	id="SNIPER"	name="Sniper"		price="100000"	weaponid="34"	ammo="10"/>
+		<article	id="ROCKETLAUNCHER"	name="RPG"			price="30000"	weaponid="35"	ammo="1"/>
+		<article	id="MINIGUN"	name="M134-a2"			price="50000"	weaponid="38"	ammo="1000"/>
+		<article	id="FLAMETHROWER"	name="Lanzallamas"	price="40000"	weaponid="37"	ammo="100"/>
+		<article	id="HEATSEEK"	name="Rocket HS"			price="50000"	weaponid="36"	ammo="1"/>
+		<article	id="GRENADE"		name="Granada"			price="25000"	weaponid="16"	ammo="2"/>
+		<article	id="TEARGAS"	name="Gas lacrimógeno"		price="20000"	weaponid="17"	ammo="4"/>
+		<article	id="MOLOTOV"		name="Molotov"			price="25000"	weaponid="18"	ammo="2"/>
+		<article	id="SACHTEL"	name="C4"			price="15000"	weaponid="39"	ammo="1"/>
+	
+	</shop>
+	
+	<!-- Ammu-Nation 2 (6)-->
+	<shop	id="AMMUN4"	type="ammu"	name="Ammu-Nation"	posX="312"	posY="-165.5"	posZ="999.6"	rotation="180"	interior="6"	rows="2"	columns="3">
+		<article	id="COLT45"	name="Pistola"			price="250"	weaponid="22"	ammo="50"/>
+		<article	id="SAWNOFF"	name="Sawn-Off"			price="3000"	weaponid="26"	ammo="100"/>
+		<article	id="MICROUZI"	name="Uzi"			price="4000"	weaponid="28"	ammo="1000"/>
+		<article	id="FIREEXT"	name="Extintor"			price="15000"	weaponid="42"	ammo="1000"/>
+		<article	id="AK47"	name="Ak-47"			price="9000"	weaponid="30"	ammo="1000"/>
+		<article	id="M4"	name="M4"		price="8500"	weaponid="31"	ammo="1000"/>
+
+	</shop>
+	
+		<!-- Ammu-Nation 3 (15)-->
+	<shop	id="AMMUN5"	type="ammu"	name="Ammu-Nation"	posX="294.73406982422"	posY="-38.515155792236"	posZ="1001.515625"	rotation="180"	interior="1"	rows="5"	columns="3">
+		
+		<article	id="SILENCED"	name="Nbb LS6904"		price="500"	weaponid="23"	ammo="50"/>
+		<article	id="DEAGLE"	name="Magnun"		price="2500"	weaponid="24"	ammo="50"/>
+		<article	id="SHOTGUN"	name="Shotgun"			price="4000"	weaponid="25"	ammo="100"/>
+		<article	id="COMBAT"	name="Combat Shotgun"		price="5000"	weaponid="27"	ammo="50"/>
+		<article	id="TEC9"	name="Tec-9"			price="5000"	weaponid="32"	ammo="1000"/>
+		<article	id="MP5"	name="MP5"			price="5000"	weaponid="29"	ammo="1000"/>
+		<article	id="NITESTICK"	name="Tolete"		price="200"	weaponid="3"	ammo="1"/>
+		<article	id="KATANA"	name="Katana"			price="80000"	weaponid="8"	ammo="1"/>
+		<article	id="NVGOGGLES"	name="Vision nocturna"		price="3000"	weaponid="44"	ammo="1"/>
+		<article	id="IRGOGGLES"	name="Vision termica"		price="3000"	weaponid="45"	ammo="1"/>
+		<article	id="AK47"	name="Ak-47"			price="9000"	weaponid="30"	ammo="1000"/>
+		<article	id="M4"	name="M4"		price="8500"	weaponid="31"	ammo="1000"/>
+		<article	id="SNIPER"	name="Sniper"		price="100000"	weaponid="34"	ammo="10"/>
+		<article	id="GRENADE"		name="Granada"			price="25000"	weaponid="16"	ammo="2"/>
+		<article	id="SACHTEL"	name="C4"			price="15000"	weaponid="39"	ammo="1"/>
+	
+	</shop>
+	
+		<!-- Ammu-Nation 4 (10)-->
+	<shop	id="AMMUN6"	type="ammu"	name="Ammu-Nation"	posX="289.98373413086"	posY="-109.76863861084"	posZ="1001.515625"	rotation="180"	interior="6"	rows="5"	columns="2">
+		
+		<article	id="COLT45"	name="Pistola"			price="250"	weaponid="22"	ammo="50"/>
+		<article	id="SILENCED"	name="Nbb LS6904"		price="500"	weaponid="23"	ammo="50"/>
+		<article	id="MICROUZI"	name="Uzi"			price="4000"	weaponid="28"	ammo="1000"/>
+		<article	id="MP5"	name="MP5"			price="5000"	weaponid="29"	ammo="1000"/>
+		<article	id="CHAINSAW"	name="Motosierra"		price="80000"	weaponid="9"	ammo="1"/>
+		<article	id="FIREEXT"	name="Extintor"			price="15000"	weaponid="42"	ammo="1000"/>
+		<article	id="CAMERA"	    name="Camara"		    price="500"	weaponid="43"	ammo="10"/>
+		<article	id="M4"	name="M4"		price="8500"	weaponid="31"	ammo="1000"/>
+		<article	id="TEARGAS"	name="Gas lacrimógeno"		price="20000"	weaponid="17"	ammo="4"/>
+		<article	id="MOLOTOV"		name="Molotov"			price="25000"	weaponid="18"	ammo="2"/>
+	
+	</shop>
+	
+		<!-- Ammu-Nation 5 (9)-->
+	<shop	id="AMMUN7"	type="ammu"	name="Ammu-Nation"	posX="295.63861083984"	posY="-80.81063079834"	posZ="1001.515625"	rotation="180"	interior="4"	rows="3"	columns="3">
+	
+		<article	id="DEAGLE"	name="Magnun"		price="2500"	weaponid="24"	ammo="50"/>
+		<article	id="COMBAT"	name="Combat Shotgun"		price="5000"	weaponid="27"	ammo="50"/>
+		<article	id="MP5"	name="MP5"			price="5000"	weaponid="29"	ammo="1000"/>
+		<article	id="SPRAYCAN"	name="Spray"			price="10000"	weaponid="41"	ammo="1000"/>
+		<article	id="JETPACK"	name="Jetpack"			price="500000"	fuel="500"/>
+		<article	id="M4"	name="M4"		price="8500"	weaponid="31"	ammo="1000"/>
+		<article	id="SNIPER"	name="Sniper"		price="100000"	weaponid="34"	ammo="10"/>
+		<article	id="MINIGUN"	name="M134-a2"			price="50000"	weaponid="38"	ammo="1000"/>
+		<article	id="TEARGAS"	name="Gas lacrimógeno"		price="20000"	weaponid="17"	ammo="4"/>
+		
+	</shop>
+	<shop	id="AMMUN8"	type="ammu"	name="Ammu-Nation"	posX=" 1178.322265625"	posY=" -1434.5556640625"	posZ=" 29.3"	rotation="90"	interior="0"	rows="4"	columns="7">
+		
+		<article	id="COLT45"	name="Pistola"			price="250"	weaponid="22"	ammo="50"/>
+		<article	id="SAWNOFF"	name="Sawn-Off"			price="3000"	weaponid="26"	ammo="100"/>
+		<article	id="MICROUZI"	name="Uzi"			price="4000"	weaponid="28"	ammo="1000"/>
+		<article	id="FIREEXT"	name="Extintor"			price="15000"	weaponid="42"	ammo="1000"/>
+		<article	id="AK47"	name="Ak-47"			price="9000"	weaponid="30"	ammo="1000"/>
+		<article	id="M4"	name="M4"		price="8500"	weaponid="31"	ammo="1000"/>
+	
+		<article	id="BAT"	name="Bat"			price="100"	weaponid="5"	ammo="1"/>
+		<article	id="SHOVEL"	name="Pala"		price="200"	weaponid="6"	ammo="1"/>
+		<article	id="NITESTICK"	name="Tolete"		price="200"	weaponid="3"	ammo="1"/>
+		<article	id="KATANA"	name="Katana"			price="80000"	weaponid="8"	ammo="1"/>
+		<article	id="CHAINSAW"	name="Motosierra"		price="80000"	weaponid="9"	ammo="1"/>
+		<article	id="SPRAYCAN"	name="Spray"			price="10000"	weaponid="41"	ammo="1000"/>
+		<article	id="FIREEXT"	name="Extintor"			price="15000"	weaponid="42"	ammo="1000"/>
+		<article	id="CAMERA"	    name="Camara"		    price="500"	weaponid="43"	ammo="10"/>
+		<article	id="NVGOGGLES"	name="Vision nocturna"		price="3000"	weaponid="44"	ammo="1"/>
+		<article	id="IRGOGGLES"	name="Vision termica"		price="3000"	weaponid="45"	ammo="1"/>
+		<article	id="PARACHUTE"	name="Paracaídas"			price="100"	weaponid="46"	ammo="1"/>
+		<article	id="JETPACK"	name="Jetpack"			price="500000"	fuel="500"/>
+		
+		<article	id="COLT45"	name="Pistola"			price="250"	weaponid="22"	ammo="50"/>
+		<article	id="SILENCED"	name="Nbb LS6904"		price="500"	weaponid="23"	ammo="50"/>
+		<article	id="DEAGLE"	name="Magnun"		price="2500"	weaponid="24"	ammo="50"/>
+		<article	id="SHOTGUN"	name="Shotgun"			price="4000"	weaponid="25"	ammo="100"/>
+		<article	id="SAWNOFF"	name="Sawn-Off"			price="3000"	weaponid="26"	ammo="100"/>
+		<article	id="COMBAT"	name="Combat Shotgun"		price="5000"	weaponid="27"	ammo="50"/>
+		<article	id="TEC9"	name="Tec-9"			price="5000"	weaponid="32"	ammo="1000"/>
+		<article	id="MICROUZI"	name="Uzi"			price="4000"	weaponid="28"	ammo="1000"/>
+		<article	id="MP5"	name="MP5"			price="5000"	weaponid="29"	ammo="1000"/>
+	</shop>
+	
+	<!-- Sex Shop-->
+	<shop	id="AMMUN8"	type="ammu"	name="Ammu-Nation"	posX="500"	posY="-165.5"	posZ="999.6"	rotation="180"	interior="0"	rows="3"	columns="1">
+		<!-- Row 1 -->
+		<article	id="VIBE1"	name="Dildo"		price="3000"	weaponid="46"	ammo="1"/>
+		
+
+		<!-- Row 2 -->
+		<article	id="DILDO2"	name="Dildo2"		price="3500"	weaponid="46"	ammo="1"/>
+
+
+		<!-- Row 3 -->		
+		<article	id="VIBE2"	name="Vibrador"		price="3000"	weaponid="46"	ammo="1"/>
+
+	</shop>
+</map>
