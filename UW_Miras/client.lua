@@ -30,7 +30,7 @@ addEventHandler("onClientResourceStart", resourceRoot,
 				engineApplyShaderToWorldTexture(Crosshair_table, "siteM16")
 				dxSetShaderValue(Crosshair_table, "gTexture", dxCreateTexture('miras/'..k..'.png'))
 				outputChatBox("Mira aplicada exitosamente!", 0, 255, 0)
-				takePlayerMoney(2000)
+				-- takePlayerMoney(2000)
 			end, false)
 		end
 
