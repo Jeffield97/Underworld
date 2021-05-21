@@ -1,0 +1,4 @@
+<meta>	
+  <info author="XGamer" name="scoreboard_PlayTime" version="1.1" type="script" />
+	<script src="hou.lua" type="server" />
+</meta>
