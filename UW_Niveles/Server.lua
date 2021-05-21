@@ -199,6 +199,7 @@ function onStart()
 	for _,player in ipairs(players) do 
 			setElementData(player,"nivel",2)
 			setElementData(player,"exp",1000)
+			AsignarTeam(player)
 	end
 end
 addEventHandler("onResourceStart",resourceRoot,onStart)
@@ -207,11 +208,12 @@ addEventHandler("onResourceStart",resourceRoot,onStart)
 function onJoin()
 	setElementData(source,"nivel",1)
 	setElementData(source,"exp",0)
+	setPlayerTeam(source,SOX1)
 end
 addEventHandler("onPlayerJoin",root,onJoin)
 
 function agregarColumnaScoreboard(source)
-	exports.scoreboard:scoreboardAddColumn("nivel",source,40,"Nivel")
+	exports.scoreboard:scoreboardAddColumn("nivel",source,20,"Nivel")
 	exports.scoreboard:scoreboardAddColumn("exp",source,50,"Exp")
 end
 addEventHandler("onResourceStart",root,agregarColumnaScoreboard)
@@ -225,3 +227,42 @@ function abrirPanel(sourcePlayer)
 end
 addCommandHandler("Nivel",abrirPanel)
 
+
+ ---LOAD
+addEventHandler ( 'onPlayerLogin', getRootElement ( ),
+    function ( _, theCurrentAccount )
+	local experiencia = getAccountData(theCurrentAccount,"exp")
+	local nivel = getAccountData(theCurrentAccount,"nivel")
+	setElementData(source,"exp",experiencia)
+	setElementData(source,"nivel",nivel)
+	end
+)
+
+
+ 
+-- addEventHandler ( 'onPlayerLogin', getRootElement ( ),
+    -- function ( _, theCurrentAccount )
+    -- local Serial = Firewall[getAccountName(theCurrentAccount)]
+        -- if Serial and Serial ~= getPlayerSerial ( source ) then
+            -- outputChatBox( "Sorry, you're not allowed to access this account.", source)
+            -- cancelEvent( true )
+        -- end
+    -- end
+-- )
+
+---SAVE
+-- function loggedOut(thePreviousAccount,theCurrentAccount)
+	-- local experiencia = getElementData(source,"exp")
+	-- local acc = getPlayerAccount(source)
+	-- setAccountData(thePreviousAccount,"exp",experiencia)
+-- end
+-- addEventHandler("onPlayerLogout",getRootElement(),loggedOut)
+
+function quitPlayer ( )
+	local experiencia = getElementData(source,"exp")
+	local nivel = getElementData(source,"nivel")
+	local acc = getPlayerAccount(source)
+	setAccountData(acc,"exp",experiencia)
+	setAccountData(acc,"nivel",nivel)
+end
+addEventHandler ( "onPlayerQuit", root, quitPlayer )
