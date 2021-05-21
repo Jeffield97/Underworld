@@ -26,7 +26,8 @@ function togglePanel()
 		if not isElement(Browser_Bg) then
 			createBrowserGui()
 		end
-		showPlayerHudComponent("all",false)
+		-- showPlayerHudComponent("all",false)
+		
 		showChat(false)
 		showCursor(true)
 		LIST = "Visitors"
@@ -55,7 +56,7 @@ function togglePanel()
 		if userlist then
 			userlist:SetVisible(false)
 		end
-		showPlayerHudComponent("all",true)
+		-- showPlayerHudComponent("all",true)
 		removeEventHandler("onClientRender",root,Panel)
 
 		if guiGetVisible(Browser_Bg) then

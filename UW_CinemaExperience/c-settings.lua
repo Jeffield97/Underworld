@@ -295,7 +295,7 @@ function requestTime(h,m,w,md,onStart)
 	if onStart then
 		setTimer(function()
 			showChat(true)
-			showPlayerHudComponent("all",true)
+			-- showPlayerHudComponent("all",true)
 		end,500,1)
 	end
 end
