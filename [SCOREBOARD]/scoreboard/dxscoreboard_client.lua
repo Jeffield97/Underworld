@@ -631,8 +631,8 @@ function doDrawScoreboard( rtPass, onlyAnim, sX, sY )
 										local firstPos = 1
 										local partOfName = string.sub( playerName, firstPos, secondPos )
 										local textLength = dxGetTextWidth( partOfName, fontscale(contentFont, s(1)), contentFont )
-										dxDrawText( partOfName, xPos+s(1), 	y+s(1), 	topX+x+s(1+column.width), 	y+s(11)+dxGetFontHeight( fontscale(teamHeaderFont, scoreboardScale)*2, teamHeaderFont ), 	tocolor( 0, 0, 0, a or 255 ), fontscale(teamHeaderFont, s(1)), teamHeaderFont, "left", "top", true, false, drawOverGUI )
-										dxDrawText( partOfName, xPos, 			y, 			topX+x+s(column.width), 	y+dxGetFontHeight( fontscale(teamHeaderFont, scoreboardScale)*2, teamHeaderFont ), 	tocolor( r or 255, g or 255, b or 255, a or 255 ), fontscale(teamHeaderFont, s(1)), teamHeaderFont, "left", "top", true, false, drawOverGUI )
+										dxDrawText( partOfName, xPos+s(1), 	y+s(1), topX+x+s(1+column.width), 	y+s(11)+dxGetFontHeight( fontscale(contentFont, scoreboardScale), contentFont ), 	tocolor( 0, 0, 0, a or 255 ), fontscale(contentFont, s(1)), contentFont, "left", "top", true, false, drawOverGUI )
+										dxDrawText( partOfName, xPos, 		y, 		topX+x+s(column.width), 	y+dxGetFontHeight( fontscale(contentFont, scoreboardScale), contentFont ), 			tocolor( r or 255, g or 255, b or 255, a or 255 ), fontscale(contentFont, s(1)), contentFont, "left", "top", true, false, drawOverGUI )
 										xPos = xPos + textLength
 									end
 									if useColors then
@@ -640,31 +640,44 @@ function doDrawScoreboard( rtPass, onlyAnim, sX, sY )
 									end
 									local partOfName = string.sub( playerName, firstCodePos, secondCodePos )
 									local textLength = dxGetTextWidth( partOfName, fontscale(contentFont, s(1)), contentFont )
-									dxDrawText( partOfName, xPos+s(1), 	y+s(1), 	topX+x+s(1+column.width), 	y+s(11)+dxGetFontHeight( fontscale(teamHeaderFont, scoreboardScale)*2, teamHeaderFont ), 	tocolor( 0, 0, 0, a or 255 ), fontscale(teamHeaderFont, s(1)), teamHeaderFont, "left", "top", true, false, drawOverGUI )
-									dxDrawText( partOfName, xPos, 			y, 			topX+x+s(column.width), 	y+dxGetFontHeight( fontscale(teamHeaderFont, scoreboardScale)*2, teamHeaderFont ), 	tocolor( r or 255, g or 255, b or 255, a or 255 ), fontscale(teamHeaderFont, s(1)), teamHeaderFont, "left", "top", true, false, drawOverGUI )
+									dxDrawText( partOfName, xPos+s(1), 	y+s(1), topX+x+s(1+column.width), 	y+s(11)+dxGetFontHeight( fontscale(contentFont, scoreboardScale), contentFont ), 	tocolor( 0, 0, 0, a or 255 ), fontscale(contentFont, s(1)), contentFont, "left", "top", true, false, drawOverGUI )
+									dxDrawText( partOfName, xPos, 		y, 		topX+x+s(column.width), 	y+dxGetFontHeight( fontscale(contentFont, scoreboardScale), contentFont ), 			tocolor( r or 255, g or 255, b or 255, a or 255 ), fontscale(contentFont, s(1)), contentFont, "left", "top", true, false, drawOverGUI )
 									xPos = xPos + textLength
+								end
+								elseif column.isImage then
+									if type(content)=="table" then
+										if fileExists (content[1]) then
+										dxDrawImage( topX+theX, y+s(1), (column.imageW or 17)*scoreboardScale, 	(column.imageH or 11)*scoreboardScale, content[1], 0, 0, 0, cWhite, drawOverGUI )
+											dxDrawText( content[2], topX+theX+s(1)+((column.imageW or 17)*scoreboardScale)+2, y+s(1), topX+x+s(1+column.width), 	y+s(11)+dxGetFontHeight( fontscale(contentFont, scoreboardScale), contentFont ), 	tocolor( 0, 0, 0, a or 255 ), fontscale(contentFont, s(1)), contentFont, "left", "top", true, false, drawOverGUI )
+											dxDrawText( content[2], topX+theX+((column.imageW or 17)*scoreboardScale)+2, y, topX+x+s(column.width), 	y+dxGetFontHeight( fontscale(contentFont, scoreboardScale), contentFont ), 			tocolor( r or 255, g or 255, b or 255, a or 255 ), fontscale(contentFont, s(1)), contentFont, "left", "top", true, false, drawOverGUI )
+										else
+											dxDrawText( content[2], topX+theX+s(1)+(0*scoreboardScale), y+s(10), topX+x+s(1+column.width), 	y+s(11)+dxGetFontHeight( fontscale(contentFont, scoreboardScale), contentFont ), 	tocolor( 0, 0, 0, a or 255 ), fontscale(contentFont, s(1)), contentFont, "left", "top", true, false, drawOverGUI )
+											dxDrawText( content[2], topX+theX+(0*scoreboardScale), y+s(9), topX+x+s(column.width), 	y+10+dxGetFontHeight( fontscale(contentFont, scoreboardScale), contentFont ), 			tocolor( r or 255, g or 255, b or 255, a or 255 ), fontscale(contentFont, s(1)), contentFont, "left", "top", true, false, drawOverGUI )
+
+										end
+								else
+									if fileExists (content) then
+										dxDrawImage( topX+theX, y+s(1), column.imageW or 17, column.imageH or 15, content[1], 0, 0, 0, cWhite, drawOverGUI )
+									end
 								end
 							elseif type( content ) == "table" and column.name ~= "name" then
 								if content.type == "image" and content.src then
-									local itemHeight = dxGetFontHeight( fontscale(teamHeaderFont, scoreboardScale)*2, teamHeaderFont )
+									local itemHeight = dxGetFontHeight( fontscale(contentFont, scoreboardScale), contentFont )
 									content.height = content.height or itemHeight
 									content.width = content.width or itemHeight
-									local itemWidth = content.height/itemHeight * content.width
+									local itemWidth = itemHeight/content.height * content.width
 
 									content.color = content.color or tocolor(255,255,255,255)
 									content.rot = content.rot or 0
 									content.rotOffX = content.rotOffX or 0
 									content.rotOffY = content.rotOffY or 0
-									
+
 									dxDrawImage ( topX+theX, y, itemWidth, itemHeight, content.src, content.rot, content.rotOffX, content.rotOffY, content.color, drawOverGUI )
+
 								end
 							else
-								--------TEAM-----------
-								-- dxDrawText( content, topX+theX+s(1), 	y+s(8), 	topX+x+s(1+column.width), 	y+s(11)+dxGetFontHeight( fontscale(teamHeaderFont, scoreboardScale)*2, teamHeaderFont ), 	tocolor( 0, 0, 0, a or 255 ), fontscale(teamHeaderFont, s(1)), teamHeaderFont, "left", "top", true, false, drawOverGUI )
-								-- dxDrawText( content, topX+theX, 		y+s(7), 		topX+x+s(column.width), 	y+dxGetFontHeight( fontscale(teamHeaderFont, scoreboardScale)*2, teamHeaderFont ), 			tocolor( r or 255, g or 255, b or 255, a or 255 ), fontscale(teamHeaderFont, s(1)), teamHeaderFont, "left", "top", true, false, drawOverGUI )
-								dxDrawText( content, topX+theX+s(1), 	y+s(8), 	topX+x+s(1+column.width), 	y+s(11)+dxGetFontHeight( fontscale(teamHeaderFont, scoreboardScale)*2, teamHeaderFont ), 	tocolor( 0, 0, 0, a or 255 ), fontscale(teamHeaderFont, s(1.03)), "default-bold", "left", "top", true, false, drawOverGUI )
-								dxDrawText( content, topX+theX, 		y+s(7), 		topX+x+s(column.width), 	y+dxGetFontHeight( fontscale(teamHeaderFont, scoreboardScale)*2, teamHeaderFont ), 			tocolor( r or 255, g or 255, b or 255, a or 255 ), fontscale(teamHeaderFont, s(1.03)), "default-bold", "left", "top", true, false, drawOverGUI )
-							
+								dxDrawText( content, topX+theX+s(1), 	y+s(1), topX+x+s(1+column.width), 	y+s(11)+dxGetFontHeight( fontscale(contentFont, scoreboardScale), contentFont ), 	tocolor( 0, 0, 0, a or 255 ), fontscale(contentFont, s(1)), contentFont, "left", "top", true, false, drawOverGUI )
+								dxDrawText( content, topX+theX, 		y, 		topX+x+s(column.width), 	y+dxGetFontHeight( fontscale(contentFont, scoreboardScale), contentFont ), 			tocolor( r or 255, g or 255, b or 255, a or 255 ), fontscale(contentFont, s(1)), contentFont, "left", "top", true, false, drawOverGUI )
 							end
 						end
 						x = x + s(column.width + 10)
@@ -722,6 +735,22 @@ function doDrawScoreboard( rtPass, onlyAnim, sX, sY )
 									dxDrawText( partOfName, xPos, 		y, 		topX+x+s(column.width), 	y+dxGetFontHeight( fontscale(contentFont, scoreboardScale)*2, contentFont ), 			tocolor( r or 255, g or 255, b or 255, a or 255 ), fontscale(contentFont, s(1)), contentFont, "left", "top", true, false, drawOverGUI )
 									xPos = xPos + textLength
 								end
+								elseif column.isImage then
+									if type(content)=="table" then
+										if fileExists (content[1]) then
+										dxDrawImage( topX+theX+s(4), y+s(10), (column.imageW or 17)*scoreboardScale, 	(column.imageH or 11)*scoreboardScale, content[1], 0, 0, 0, cWhite, drawOverGUI )
+											-- dxDrawText( content[2], topX+theX+s(1)+((column.imageW or 17)*scoreboardScale)+2, y+s(1), topX+x+s(1+column.width), 	y+s(11)+dxGetFontHeight( fontscale(contentFont, scoreboardScale), contentFont ), 	tocolor( 0, 0, 0, a or 255 ), fontscale(contentFont, s(1)), contentFont, "left", "top", true, false, drawOverGUI )
+											-- dxDrawText( content[2], topX+theX+((column.imageW or 17)*scoreboardScale)+2, y, topX+x+s(column.width), 	y+dxGetFontHeight( fontscale(contentFont, scoreboardScale), contentFont ), 			tocolor( r or 255, g or 255, b or 255, a or 255 ), fontscale(contentFont, s(1)), contentFont, "left", "top", true, false, drawOverGUI )
+										else
+											dxDrawText( content[2], topX+theX+s(1)+(0*scoreboardScale), y+s(8), topX+x+s(1+column.width), 	y+s(11)+dxGetFontHeight( fontscale(contentFont, scoreboardScale), contentFont ), 	tocolor( 0, 0, 0, a or 255 ), fontscale(contentFont, s(1)), contentFont, "left", "top", true, false, drawOverGUI )
+											dxDrawText( content[2], topX+theX+(0*scoreboardScale), y+s(7), topX+x+s(column.width), 	y+10+dxGetFontHeight( fontscale(contentFont, scoreboardScale), contentFont ), 			tocolor( r or 255, g or 255, b or 255, a or 255 ), fontscale(contentFont, s(1)), contentFont, "left", "top", true, false, drawOverGUI )
+											-- outputChatBox("Dibujando ctry")
+										end
+								else
+									if fileExists (content) then
+										dxDrawImage( topX+theX, y+s(1), column.imageW or 17, column.imageH or 15, content[1], 0, 0, 0, cWhite, drawOverGUI )
+									end
+								end
 							elseif type( content ) == "table" and column.name ~= "name" then
 								if content.type == "image" and content.src then
 									local itemHeight = dxGetFontHeight( fontscale(contentFont, scoreboardScale)*2, contentFont )
@@ -759,7 +788,7 @@ end
 
 -- FUNCTIONS
 -- addColumn
-function scoreboardAddColumn( name, width, friendlyName, priority, textFunction, fromResource )
+function scoreboardAddColumn( name, width, friendlyName, priority, textFunction, fromResource, isImage, imageW, imageH )
 	if type( name ) == "string" then
 		width = width or 70
 		friendlyName = friendlyName or name
@@ -767,15 +796,15 @@ function scoreboardAddColumn( name, width, friendlyName, priority, textFunction,
 		fixPrioritySlot( priority )
 		textFunction = textFunction or nil
 		fromResource = sourceResource or fromResource or nil
-		
 		if not (priority > MAX_PRIRORITY_SLOT or priority < 1) then
 			for key, value in ipairs( scoreboardColumns ) do
 				if name == value.name then
 					return false
 				end
 			end
-			table.insert( scoreboardColumns, { ["name"] = name, ["width"] = width, ["friendlyName"] = friendlyName, ["priority"] = priority, ["textFunction"] = textFunction } )
+			table.insert( scoreboardColumns, { ["name"] = name, ["width"] = width, ["friendlyName"] = friendlyName, ["priority"] = priority, ["textFunction"] = textFunction, ["isImage"] = isImage, ["imageW"] = imageW, ["imageH"] = imageH } )
 			table.sort( scoreboardColumns, function ( a, b ) return a.priority < b.priority end )
+
 			if fromResource then
 				if not resourceColumns[fromResource] then resourceColumns[fromResource] = {} end
 				table.insert ( resourceColumns[fromResource], name )
@@ -788,8 +817,8 @@ end
 
 addEvent( "doScoreboardAddColumn", true )
 addEventHandler( "doScoreboardAddColumn", getResourceRootElement(),
-	function ( name, width, friendlyName, priority, fromResource )
-		scoreboardAddColumn( name, width, friendlyName, priority, nil, fromResource )
+	function ( name, width, friendlyName, priority, fromResource, isImage, imageW, imageH )
+		scoreboardAddColumn( name, width, friendlyName, priority, nil, fromResource, isImage, imageW, imageH )
 	end
 )
 

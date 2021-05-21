@@ -165,8 +165,8 @@ local bAddFakePlayers = false
 
 if bAddFakePlayers then
 
-    local numberOfTeams = 10
-    local numberOfPlayersPerTeam = 20
+    local numberOfTeams = 4
+    local numberOfPlayersPerTeam = 6
 
 	_getElementsByType = getElementsByType
 	function getElementsByType(type)
