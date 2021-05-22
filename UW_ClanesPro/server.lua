@@ -7,7 +7,8 @@ end
 addEventHandler("onResourceStart", resourceRoot,
 function()
 	local data = data()
-	exports.scoreboard:addScoreboardColumn("Group", root, 3, 80)
+	-- exports.scoreboard:addScoreboardColumn("Group", root, 3, 80)
+	exports.scoreboard:scoreboardAddColumn("Group",root,80,"Clan")
 	db = dbConnect("sqlite", "database.db")               
 	dbExec(db, "CREATE TABLE IF NOT EXISTS groups (group_name, group_members INT, members_limit, group_info, group_bank INT, turf_color, chat_color, tag_color, group_owner, turf_points INT, kill_points INT)")
 	dbExec(db, "CREATE TABLE IF NOT EXISTS group_ranks (group_name, group_rank_name, group_rank_permission, rank_type)")
