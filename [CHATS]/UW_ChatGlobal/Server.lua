@@ -27,6 +27,7 @@ function colouredChat ( message, theType )
 		local colorTeam=RGBToHex(getTeamColor(getPlayerTeam(source)))
 		--output a message with the name as his nametag colour, and the rest in white.
 		outputChatBox ( colorTeam..chatterName..":#FFFFFF "..message, root, r, g, b, true )
+		outputServerLog(chatterName..":"..message)
 	end
 end
 addEventHandler("onPlayerChat", root, colouredChat)
