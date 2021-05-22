@@ -213,8 +213,8 @@ end
 addEventHandler("onPlayerJoin",root,onJoin)
 
 function agregarColumnaScoreboard(source)
-	exports.scoreboard:scoreboardAddColumn("nivel",source,20,"Nivel")
-	exports.scoreboard:scoreboardAddColumn("exp",source,50,"Exp")
+	exports.scoreboard:scoreboardAddColumn("nivel",source,30,"Nivel",3)
+	exports.scoreboard:scoreboardAddColumn("exp",source,50,"Exp",4)
 end
 addEventHandler("onResourceStart",root,agregarColumnaScoreboard)
 
