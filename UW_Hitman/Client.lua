@@ -21,7 +21,7 @@ function HitmanPanel()
 	local column = DGS:dgsGridListAddColumn( playerList, "Player", 0.5 )  --Create a players column in the list
 	local column2 = DGS:dgsGridListAddColumn( playerList, "Recompensa", 0.5 )  --Create a players column in the list
 	
-	addEventHandler ( "onDgsMouseClick", root, function ( button, state  )
+	addEventHandler ( "OnDgsMouseClickDown", root, function ( button, state  )
 	if source == tabListRewarded then
 		DGS:dgsGridListClearRow(playerList)
 		LlenarPlayerList()
@@ -52,7 +52,7 @@ function HitmanPanel()
 	
 
 	
-	addEventHandler ( "onDgsMouseClick", root, function ( button, state  )
+	addEventHandler ( "OnDgsMouseClickDown", root, function ( button, state  )
 	if source == playerListReward then 
 		local Selected = DGS:dgsGridListGetSelectedItem(playerListReward)
 		if Selected ~= -1 then 
