@@ -40,6 +40,7 @@ function onChat(player,_,...)
 	  for _,v in ipairs(getElementsByType("player")) do
 		if isPlayerInRangeOfPoint(v,px,py,pz,chat_range) then
 		  outputChatBox( "#f98ee6(Local) #ffffff"..nick..": "..msg,v,r,g,b,true)
+		  outputServerLog("[Local]"..nick..": "..msg)
 		end
 	  end
 	  
