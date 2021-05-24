@@ -16,7 +16,7 @@ addEventHandler( "onResourceStart", root, resourceStartNotify )
 local Bases={
 				{ 1877.126953125, 1778.4140625, 18.933877944946},--LV
 				{ -2501.6904296875, -686.845703125, 139.3203125},--SF
-				{1127.7919921875, -1528.4306640625, 22.75513458252},
+				{1127.7919921875, -1528.4306640625, 22.75513458252},--LS
 				{ -2240.515625, -2303.677734375, 30.352777481079},
 				{ -2091.9853515625, 2314.6220703125, 25.9140625}
 			}
@@ -76,12 +76,12 @@ addCommandHandler("spawnBase",spawnType,_,false)
 
 
 ---Spawn al momento del join
-function onJoinPlayer ()
-	spawn(source, 0.0, 0.0, 600.0, 90.0)
-	setElementData(source,"spawnBase",true)
+-- function onJoinPlayer ()
+	-- spawn(source, 0.0, 0.0, 600.0, 90.0)
+	-- setElementData(source,"spawnBase",true)
 	-- setTimer(giveWeapon,1000,1,source,46)
-end
-addEventHandler ( "onPlayerJoin", root, onJoinPlayer )
+-- end
+-- addEventHandler ( "onPlayerJoin", root, onJoinPlayer )
 
 
 function spawn(player,x,y,z,rotation,skin,interior,dimension)
