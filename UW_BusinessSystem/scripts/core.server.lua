@@ -33,7 +33,7 @@ function dbCreateBusinessesCallback(query_handle)
 	if (sql and #sql > 0) then
 		for index, row in ipairs(sql) do
 			local pos = split(row["pos"], ",");
-			local b_marker = Marker(pos[1], pos[2], pos[3]-0.1, "cylinder", 1.2, settings.marker_color[1], settings.marker_color[2], settings.marker_color[3], settings.marker_color[4]);
+			local b_marker = Marker(pos[1], pos[2], pos[3], "cylinder", 1.2, settings.marker_color[1], settings.marker_color[2], settings.marker_color[3], settings.marker_color[4]);
 			b_marker.interior = pos[4];
 			b_marker.dimension = pos[5];
 			if (settings.blip ~= false) then
