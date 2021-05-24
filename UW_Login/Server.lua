@@ -99,6 +99,7 @@ function Registrar(player,User,Pass,Email,Edad,Sexo,Raza)
 				outputChatBox("#d1ebf7Contraseña: #19f730"..Pass,player,0,0,0,true)
 				logIn (player,account,Pass)
 				triggerClientEvent ( player, "CerrarRegistro",player)
+				spawnPlayer(player,1134.537109375, -1557.2515869141, 24.55,63.22)
 			end
 		else
 			exports["_infobox"]:addNotification(player,"La cuenta ya existe","error")
@@ -130,3 +131,9 @@ addEventHandler( "onResourceStart", resourceRoot,
 		end, 1000, 1 )
 	end
 )
+
+function invitado(player)
+	spawnPlayer(player,1134.537109375, -1557.2515869141, 24.55,63.22)
+end
+addEvent("invitado",true)
+addEventHandler("invitado",resourceRoot,invitado)

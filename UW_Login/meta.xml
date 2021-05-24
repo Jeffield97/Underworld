@@ -3,4 +3,5 @@
 <script src="Server.lua" type="server" />
 <script src="Client.lua" type="client" />
 <file src="Fondo.png"/>
+<file src="soundtrack.mp3"/>
 </meta>

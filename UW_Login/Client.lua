@@ -1,77 +1,7 @@
--- loadstring(exports.dgs:dgsImportFunction())()
-
--- function setupWeaponSelection (theResource )
--- local screenW, screenH = guiGetScreenSize()
-
-	  -- local player= getLocalPlayer()
-
-	  -- Login_Windows(player,screenW,screenH)
-	  
-	  -- showCursor(true)
-	  
--- end
--- addEventHandler ( "onClientResourceStart", getResourceRootElement(getThisResource()), setupWeaponSelection )
-
-
--- function Login_Windows(player,_x,_y)
-	-- local WindowsL=dgsCreateWindow ( (_x - 588) / 2, (_y - 317) / 2, 588, 317, "Login", false,_,_,_,_,_,tocolor(50,50,50,250))
-	-- local BtnRegistrar=dgsCreateButton(0.05,0.79,0.2,0.09,"Ingresar",true,WindowsL,_,_,_,_,_,_,tocolor(255,0,0,130))
-	
-	-- function Registrar()
-		-- if dgsGetType(source)=="dgs-dxbutton" then
-			-- outputChatBox("Registrando.....")
-			-- dgsCloseWindow(WindowsL)
-			-- Register_Windows(player,_x,_y)
-		-- end
-	-- end
-	-- addEventHandler ( "onDgsMouseClickDown", BtnRegistrar, Registrar )
--- end
-
--- function Register_Windows(player,_x,_y)
-	-- local WindowsR=dgsCreateWindow ( (_x - 588) / 2, (_y - 317) / 2, 588, 317, "Register", false,_,_,_,_,_,tocolor(50,50,50,250))
-	-- local BtnLogin=dgsCreateButton(0.05,0.79,0.2,0.09,"Regresar",true,WindowsR,_,_,_,_,_,_,tocolor(255,0,0,130))
-	
-	-- function Regresar()
-		-- if dgsGetType(source)=="dgs-dxbutton" then
-			-- outputChatBox("Volviendo...")
-			-- dgsCloseWindow(WindowsR)
-			-- Login_Windows(player,_x,_y)
-		-- end
-	-- end
-	-- addEventHandler ( "onDgsMouseClickDown", BtnLogin, Regresar )
--- end
-
--- loadstring(exports.dgs:dgsImportFunction())()-- load functions
-
--- local sW, sH = guiGetScreenSize() -- get the screen size
--- local blurbox = dgsCreateBlurBox(sW, sH) -- Create a blur Box
--- local blurArea = dgsCreateImage(0,0,1,1,blurbox,true) -- --Blur Box Renderer
-
--- Register_Windows = dgsCreateWindow (  0.2,0.2, 0.5,0.5, "Panel de Registro Underworld", true,blurArea,_,_,_,_,tocolor(50,50,50,250))
-
--- DGS = exports.dgs --get exported functions from dgs
-
--- local blurbox = DGS:dgsCreateBlurBox(600, 500) --Blur Box
--- local blurArea = DGS:dgsCreateImage(200,200,600,500,blurbox,false)
-
--- function getCam(commandName)
-	-- outputChatBox("Getting Camera de: "..getPlayerName(localPlayer))
-	-- local x, y, z, lx, ly, lz = getCameraMatrix ()
-	-- outputChatBox("Posición: "..x..","..y..","..z..","..lx..","..ly..","..lz)
-	-- local x, y, z, lx, ly, lz = getCameraMatrix (playerSource)
-	-- setTimer( function()
-		-- x, lx = x + 1, lx + 1
-		-- y, ly = y + 1, ly + 1
-		-- setCameraMatrix (x, y, z, lx, ly, lz)
-	-- end,60,100)
-	-- x, lx = x + 1, lx + 1
-	-- setCameraMatrix (x, y, z, lx, ly, lz)
--- end
--- addCommandHandler("g",getCam)
-
-
 loadstring(exports.dgs:dgsImportFunction())()
 
+local sound = playSound("soundtrack.mp3")
+setSoundVolume(sound,1)
 function Uw_Login()
 	local screenW, screenH = guiGetScreenSize() 
 	outputChatBox("Login Iniciado!!")
@@ -143,6 +73,7 @@ function Login(player,_x,_y)
 		if dgsGetType(source)=="dgs-dxbutton" then
 			outputChatBox("BtnInvitado")
 			CerrarLogin()
+			triggerServerEvent ( "invitado", resourceRoot,player)
 		end
 	end
 	addEventHandler ( "onDgsMouseClickDown", BtnInvitado, Invitado )
@@ -346,6 +277,7 @@ function Vista()
 end
 
 function CerrarLogin()
+	destroyElement(sound)
 	killTimer(TVista)
 	CloseBlur()
 	setCameraTarget(getLocalPlayer())
