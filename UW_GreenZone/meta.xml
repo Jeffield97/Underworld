@@ -1,0 +1,5 @@
+<meta>
+     <script src="greenzoneC.lua" type="client" />
+     <script src="greenzone.lua" type="server" />
+     <map src="greenzones.map" dimension="0" />
+</meta>

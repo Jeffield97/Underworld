@@ -1,0 +1,8 @@
+<map>
+  <radararea posX="1921.408203125" posY="1585.708007812" sizeX="100" sizeY="100" color="#00FF007F" dimension="0" />
+  <radararea posX="1575.6142578125" posY="658.361328125" sizeX="185" sizeY="130" color="#00FF007F" dimension="0" />
+  <radararea posX=" 2096.1123046875" posY="2706.9013671875" sizeX="78" sizeY="60" color="#00FF007F" dimension="0" />
+  <radararea posX="-1642.87890625" posY="645.2333984375" sizeX="73" sizeY="60" color="#00FF007F" dimension="0" />
+  <radararea posX="2876.583984375" posY="-349.064453125" sizeX="48" sizeY="55" color="#00FF007F" dimension="0" />
+  <radararea posX="1060.5625" posY="-1563.6259765625" sizeX="125" sizeY="150" color="#00FF007F" dimension="0" />
+</map>
