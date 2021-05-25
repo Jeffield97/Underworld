@@ -1,0 +1,11 @@
+Obrigado por fazer download no Mj Mods
+
+Tutorial :
+
+Pra editar os preços  utilize o client.lua
+
+Pra editar os nomes e coisas do tipo utilize o server.lua
+
+O tutorial ta na frente da parte de editar em cada parte
+
+Lembre de clicar nas propagandas do mj pra nos ajudar 
