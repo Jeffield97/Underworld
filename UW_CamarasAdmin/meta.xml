@@ -1,0 +1,11 @@
+<meta>
+	<info author="Aiboforcen" version="1.1.5" type="script" name="CCTV: Security cameras" description="CCTV: Security cameras resource" />
+	<script src="cctv.lua" type="server" />
+	<script src="cctv_c.lua" type="client" />
+  
+  <file src="gfx/scanlines.png" />
+  <file src="gfx/line.png" />
+  <file src="gfx/tcrbg.png" />
+  <file src="gfx/buttons.png" />
+
+</meta>
