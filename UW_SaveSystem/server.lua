@@ -157,7 +157,8 @@ local x = getAccountData(currentaccount,"x")
 local y = getAccountData(currentaccount,"y")
 local z = getAccountData(currentaccount,"z")
 if (x) and (y) and (z) then
-setElementPosition(source,x,y,z)
+-- setElementPosition(source,x,y,z)
+spawnPlayer(source,x,y,z)
 end
 end
 addEventHandler("onPlayerLogin",root,loadPositionOnLogin)
