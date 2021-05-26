@@ -156,9 +156,10 @@ function loadPositionOnLogin(previousaccount,currentaccount)
 local x = getAccountData(currentaccount,"x")
 local y = getAccountData(currentaccount,"y")
 local z = getAccountData(currentaccount,"z")
+local skin= getAccountData(currentaccount,"skin")
 if (x) and (y) and (z) then
 -- setElementPosition(source,x,y,z)
-spawnPlayer(source,x,y,z)
+spawnPlayer(source,x,y,z,_,skin)
 end
 end
 addEventHandler("onPlayerLogin",root,loadPositionOnLogin)
@@ -578,7 +579,7 @@ end
 addEventHandler("onPlayerLogin",root,loadWeaponsOnLogin)
 
 function saveWeaponsOnWasted()
-	if not getElementData(source,"ZoneWar")=="Yes" then
+	if  getElementData(source,"ZoneWar")=="Yes" then return end
 		local account = getPlayerAccount(source)
 		local weapon0 = getPedWeapon(source,0)
 		local weapon1 = getPedWeapon(source,1)
@@ -634,7 +635,7 @@ function saveWeaponsOnWasted()
 			setAccountData(account,"ammo11",ammo11)
 			setAccountData(account,"ammo12",ammo12)
 		end
-	end
+	-- end
 end
 addEventHandler("onPlayerWasted",root,saveWeaponsOnWasted)
 
