@@ -4,7 +4,9 @@ function resourceStartNotify ( resourcename )
 	if ( resourcename == getThisResource() ) then
 		-- send an info debug message as a notification
 		outputDebugString ( "Resource " .. getResourceName(resourcename) .. " cargado." )
-		-- onLogin(source)
+		setTimer(setDefaultData,2000,1)
+		
+-- setTimer ( delayedChat, 1000, 1, "Hello, World!" )
 	end
 end
 addEventHandler( "onResourceStart", root, resourceStartNotify )
@@ -12,6 +14,7 @@ addEventHandler( "onResourceStart", root, resourceStartNotify )
 
 function setWings(player)
 	Wings = createObject(1644,0,0,-100)
+	setElementDimension(Wings,getElementDimension(player))
 	--setElementAlpha(Wings,200)
 	setObjectScale(Wings,0.5)
 	setElementID ( Wings, getPlayerName(player)) 
@@ -22,12 +25,15 @@ addEventHandler("setWings", getResourceRootElement(getThisResource()) ,setWings)
 
 function deleteWings(player)
 	if(getElementByID(getPlayerName(player))) then
-		destroyElement(getElementByID(getPlayerName(player)))
+		outputDebugString(tostring(destroyElement(getElementByID(getPlayerName(player)))))
+		-- setElementAlpha(getElementByID(getPlayerName(player)),0)
 		outputChatBox("Alas eliminadas correctamente")
+		outputDebugString("Alas eliminadas")
 	end
 end
 addEvent("deleteWings",true)
 addEventHandler("deleteWings", getResourceRootElement(getThisResource()) ,deleteWings)
+-- addEventHandler ( "onPlayerQuit", getResourceRootElement(getThisResource()), deleteWings )
 
 --ASIGNAR ANIMACIÓN
 function setAnimation(source,anim,sanim)
@@ -53,28 +59,28 @@ end
 addEventHandler ( "onPlayerQuit", root, quitPlayer )
 
 
-function onJoin()
+-- function onJoin()
 	-- triggerClientEvent(source,"onStart",source,0,0)
 	-- setElementData(source,"Transformed",false)
-end    --End function
+-- end    --End function
 -- addEventHandler("onPlayerJoin", root, onJoin)
 
 function onQuit(TimeT)
 	-- if client then
 		local acc = getPlayerAccount(client)
 		setAccountData(acc,"TimeTransformation",TimeT)
+		-- deleteWings(client)
 		outputChatBox("Datos seteados a la cuenta!!")
 	-- end
 end
 addEvent("onQuit",true)
 addEventHandler("onQuit",resourceRoot,onQuit)
 
-addEventHandler("onPlayerLogin", root,
-  function()
-    -- outputChatBox(getPlayerName(source).." has logged in!", root)
-	local theCurrentAccount = getPlayerAccount(source)
+-- addEventHandler("onPlayerLogin", root,
+  function onLogin(_,theCurrentAccount )
 	local nivel= getAccountData(theCurrentAccount,"nivel")
 	local TimeTransformation = getAccountData(theCurrentAccount,"TimeTransformation")
+	deleteWings(source)
 	outputChatBox("TimeTransformation: "..tostring(TimeTransformation))
 	if TimeTransformation then
 		-- setElementData(source,"TimeTransformation",TimeTransformation)
@@ -88,6 +94,26 @@ addEventHandler("onPlayerLogin", root,
 		-- setElementData(source,"TimeTransformation",60)
 	end
   end
-)
+  addEventHandler("onPlayerLogin",root,onLogin)
+-- )
 
-
+function setDefaultData()
+-- setTimer(
+	for k,player in ipairs(getElementsByType("player")) do
+		local theCurrentAccount= getPlayerAccount(player)
+		local nivel= getAccountData(theCurrentAccount,"nivel")
+		local TimeTransformation = getAccountData(theCurrentAccount,"TimeTransformation")
+		deleteWings(player)
+		outputChatBox("TimeTransformation: "..tostring(TimeTransformation))
+		if TimeTransformation then
+			outputChatBox("Nivel a setear: "..nivel)
+			triggerClientEvent(player,"onStart",player,TimeTransformation,nivel)
+			outputChatBox("TimeTransformation recuperado exitosamente!")
+		else
+			setAccountData(theCurrentAccount,"TimeTransformation",nivel*60)
+			outputChatBox("TimeTransformation reseteado al nivel")
+			triggerClientEvent(player,"onStart",player,nivel*60,nivel)
+		end
+	end
+	-- ,2000,1)
+end

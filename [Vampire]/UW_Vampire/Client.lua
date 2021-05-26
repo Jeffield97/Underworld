@@ -3,17 +3,17 @@ loadstring(exports.dgs:dgsImportFunction())()
 --TimeTrans=getElementData(localPlayer,"TimeTransformation")
 function VampireT()
 	localPlayer= getLocalPlayer()
-	if getElementData(localPlayer,"Transformed") then
-		Destransformar()
-		
-		
-	else
-		Transformar()
+	if  getElementData(localPlayer,"Raza")=="Vampire" then
+		if getElementData(localPlayer,"Transformed") then
+			Destransformar()
+			
+		else
+			Transformar()
 
-		
+		end
 	end
 end
-addCommandHandler("v",VampireT)
+addCommandHandler("Transformar",VampireT,false)
 
 function Transformar()
 	outputChatBox("Transformando")
@@ -79,11 +79,11 @@ function onStart(TimeTransformation,_lvl)
 	outputChatBox("Seteados correctamente: "..TimeTransformation)
 	outputChatBox("Nivel: ".._lvl)
 	setElementData(localPlayer,"Transformed",false)
+	setElementData(localPlayer,"Raza","Vampire")
 	setElementData(localPlayer,"TimeTransformation",TimeTransformation)
 	TimeTrans=getElementData(localPlayer,"TimeTransformation")
 	TimeCalulated= _lvl*60
 	Status()
-	
 end
 addEvent("onStart",true)
 addEventHandler("onStart",localPlayer,onStart)
@@ -91,6 +91,7 @@ addEventHandler("onStart",localPlayer,onStart)
 
 function onClientQuit( )
     outputChatBox("Guardando datos en cuenta: "..TimeTrans)
+	-- Destransformar()
 	triggerServerEvent("onQuit",resourceRoot,TimeTrans)
 end
 -- addCommandHandler("sda",onClientQuit)
