@@ -1,0 +1,6 @@
+<meta>
+    <script src="custom.lua" type="client" />
+    <file src="files/od_beachstuff.txd" />
+    <file src="files/lotion.dff" />
+
+</meta>
