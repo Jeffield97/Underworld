@@ -2,5 +2,7 @@
 <info author="pc_hunter" version="1.0" description="Descripción de la plantilla" type="script" />
 <script src="Server.lua" type="server" />
 <script src="Client.lua" type="client" />
-<!-- <file src="Logo.png"/> -->
+<file src="Logo.png"/>
+<file src="font.ttf"/>
+<file src="font2.otf"/>
 </meta>
