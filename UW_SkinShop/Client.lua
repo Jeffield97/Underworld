@@ -163,12 +163,15 @@ end
 
 
 local playerMarker = createMarker(1146.5947265625, -1514.9794921875, 14.696875, "cylinder", 0.5, 255,0,37, 200)
-local ClothPed = createPed ( 256,  1148.40625, -1516.8125, 15.796875)
+local ClothPed = createPed ( 9,  1148.40625, -1516.8125, 15.796875)
+
 --setElementInterior (ClothPed, 1, 294.94079589844, -40.216415405273, 1001.515625)
 setElementRotation(ClothPed,  0, 0, 47.233703613281)
 setPedVoice(ClothPed, "PED_TYPE_ENABLED")
 setElementFrozen (ClothPed, true)
-setElementDimension (ClothPed, 0)
+setElementDimension (ClothPed, 1)
+setElementDimension (playerMarker, 1)
+
 
 function cancelPedDamage()
 	cancelEvent() 
