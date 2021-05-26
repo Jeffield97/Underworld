@@ -1,5 +1,7 @@
 <meta>
-	<info author="ScorT^#" version="1.0.0" type="script" />
-	<script src="thescript.lua" type="client" />
-	<script src="readme.lua" type="client" />
+    <info author="pc_hunter" version="1.0" description="Descripción de la plantilla" type="script" />
+    <min_mta_version client="1.5.7-9.19626"></min_mta_version>
+    <!-- <script src="Server.lua" type="server" /> -->
+    <script src="Client.lua" type="client" />
+    <!-- <file src="Fondo.png"/> -->
 </meta>
