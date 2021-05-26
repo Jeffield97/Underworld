@@ -80,11 +80,15 @@ addEventHandler("updateCheckedSettings",resourceRoot,settingsUpdate)
 -----------------------
 
 local entryMarker1 = createMarker(-1961.9163818359, 441.00451660156, 36.471875,"arrow",2.0,0,0,0,0 )
+setElementDimension(entryMarker1,1)
 local entryMarker2 = createMarker(-1961.9163818359, 434.25451660156, 36.471875,"arrow",2.0,0,0,0,0 )
+setElementDimension(entryMarker2,1)
 local entryPos = {-1944.1446533203, 417.55212402344, -4} -- rot 0
 
 local exitMarker1 = createMarker(-1941.7396240234, 415.32360058594, -3.3265624046326,"arrow",2.0,255,255,255 )
+setElementDimension(exitMarker1,1)
 local exitMarker2 = createMarker(-1946.6325683594, 415.32360839844, -3.3265624046326,"arrow",2.0,255,255,255 )
+setElementDimension(exitMarker2,1)
 local exitPos = {-1970.8629150391, 437.7082824707, 35.6} -- rot 90
 
 function setPlayerPositions(plr,pos,resourceStart)
@@ -377,6 +381,7 @@ function createFakeCrowd(crowdSpawned)
         for i, v in ipairs(fakeCrowdPos) do
             local ID = femaleSkins[math.random(#femaleSkins)]
             fakeCrowd[i] = createPed(ID, v[1], v[2], v[3], v[4])
+			setElementDimension(fakeCrowd[i],1)
             local t = math.random(50,4000)
             animTimer[i] = setTimer(setPedAnimation,t,1,fakeCrowd[i],"RIOT",crowdAnims[math.random(#crowdAnims)])
             setElementFrozen(fakeCrowd[i],true)
@@ -411,4 +416,5 @@ addEventHandler("requestTime",root,requestTime)
 -- Blip --
 
 local cinemaBlip = createBlip(-1953.275,439.171,-1.2, 43)
+setElementDimension(cinemaBlip,1)
 setBlipVisibleDistance(cinemaBlip, 300)
