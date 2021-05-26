@@ -3,17 +3,19 @@ loadstring(exports.dgs:dgsImportFunction())()
 --TimeTrans=getElementData(localPlayer,"TimeTransformation")
 function WolfmanT()
 	localPlayer= getLocalPlayer()
-	if getElementData(localPlayer,"Transformed") then
-		Destransformar()
-		
-		
-	else
-		Transformar()
+	if  getElementData(localPlayer,"Raza")=="Wolfman" then
+		if getElementData(localPlayer,"Transformed") then
+			Destransformar()
+			
+			
+		else
+			Transformar()
 
-		
+			
+		end
 	end
 end
-addCommandHandler("w",WolfmanT)
+addCommandHandler("Transformar",WolfmanT,false)
 
 function Transformar()
 	outputChatBox("Transformando")
@@ -87,9 +89,10 @@ function Destransformar()
 end
 
 
-function onStart(TimeTransformation,_lvl)
+function onStart(TimeTransformation,_lvl,Raza)
 	outputChatBox("Seteados correctamente: "..TimeTransformation)
 	outputChatBox("Nivel: ".._lvl)
+	setElementData(localPlayer,"Raza",Raza)
 	setElementData(localPlayer,"Transformed",false)
 	setElementData(localPlayer,"TimeTransformation",TimeTransformation)
 	TimeTrans=getElementData(localPlayer,"TimeTransformation")
