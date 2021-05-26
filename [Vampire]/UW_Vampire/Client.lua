@@ -75,11 +75,11 @@ function Destransformar()
 end
 
 
-function onStart(TimeTransformation,_lvl)
+function onStart(TimeTransformation,_lvl,Raza)
 	outputChatBox("Seteados correctamente: "..TimeTransformation)
 	outputChatBox("Nivel: ".._lvl)
 	setElementData(localPlayer,"Transformed",false)
-	setElementData(localPlayer,"Raza","Vampire")
+	setElementData(localPlayer,"Raza",Raza)
 	setElementData(localPlayer,"TimeTransformation",TimeTransformation)
 	TimeTrans=getElementData(localPlayer,"TimeTransformation")
 	TimeCalulated= _lvl*60

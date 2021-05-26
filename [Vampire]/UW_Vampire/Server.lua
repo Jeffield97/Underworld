@@ -80,17 +80,18 @@ addEventHandler("onQuit",resourceRoot,onQuit)
   function onLogin(_,theCurrentAccount )
 	local nivel= getAccountData(theCurrentAccount,"nivel")
 	local TimeTransformation = getAccountData(theCurrentAccount,"TimeTransformation")
+	local Raza = getAccountData(theCurrentAccount,"Raza")		
 	deleteWings(source)
 	outputChatBox("TimeTransformation: "..tostring(TimeTransformation))
 	if TimeTransformation then
 		-- setElementData(source,"TimeTransformation",TimeTransformation)
 		outputChatBox("Nivel a setear: "..nivel)
-		triggerClientEvent(source,"onStart",source,TimeTransformation,nivel)
+		triggerClientEvent(source,"onStart",source,TimeTransformation,nivel,Raza)
 		outputChatBox("TimeTransformation recuperado exitosamente!")
 	else
 		setAccountData(theCurrentAccount,"TimeTransformation",nivel*60)
 		outputChatBox("TimeTransformation reseteado al nivel")
-		triggerClientEvent(source,"onStart",source,nivel*60,nivel)
+		triggerClientEvent(source,"onStart",source,nivel*60,nivel,Raza)
 		-- setElementData(source,"TimeTransformation",60)
 	end
   end
@@ -103,16 +104,18 @@ function setDefaultData()
 		local theCurrentAccount= getPlayerAccount(player)
 		local nivel= getAccountData(theCurrentAccount,"nivel")
 		local TimeTransformation = getAccountData(theCurrentAccount,"TimeTransformation")
+		local Raza = getAccountData(theCurrentAccount,"Raza")
+		
 		deleteWings(player)
 		outputChatBox("TimeTransformation: "..tostring(TimeTransformation))
 		if TimeTransformation then
 			outputChatBox("Nivel a setear: "..nivel)
-			triggerClientEvent(player,"onStart",player,TimeTransformation,nivel)
+			triggerClientEvent(player,"onStart",player,TimeTransformation,nivel,Raza)
 			outputChatBox("TimeTransformation recuperado exitosamente!")
 		else
 			setAccountData(theCurrentAccount,"TimeTransformation",nivel*60)
 			outputChatBox("TimeTransformation reseteado al nivel")
-			triggerClientEvent(player,"onStart",player,nivel*60,nivel)
+			triggerClientEvent(player,"onStart",player,nivel*60,nivel,Raza)
 		end
 	end
 	-- ,2000,1)
