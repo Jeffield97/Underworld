@@ -68,8 +68,10 @@ addEventHandler("onClientRender", getRootElement(),
 -- VIDA / COLETE
 		local heath = tonumber(getElementHealth(localPlayer))
 		
-		if heath < 100 then
+		if heath < 101 then
 		ShaiderRectangleMenu(widgetsHud.vida["posX"], widgetsHud.vida["posY"], widgetsHud.vida["posW"]/100*heath, widgetsHud.vida["posH"], tocolor(255,84,84,220))
+		else
+		ShaiderRectangleMenu(widgetsHud.vida["posX"], widgetsHud.vida["posY"], widgetsHud.vida["posW"]/200*heath, widgetsHud.vida["posH"], tocolor(84,84,255,220))
 		end
 		local armor = tonumber(getPedArmor(localPlayer))
 		dxDrawText(math.floor(heath).."%",widgetsHud.vida["posX"]*1.07, widgetsHud.vida["posY"]*2,widgetsHud.vida["posW"], widgetsHud.vida["posH"],tocolor(255, 255, 255, 255), 1.00, "default-bold", "left", "center", false, false, false, false, false)
