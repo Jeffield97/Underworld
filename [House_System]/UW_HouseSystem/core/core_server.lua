@@ -62,8 +62,9 @@ function createHouse( add, ID, owner, key, eX, eY, eZ, etX, etY, etZ, exX, exY, 
     sql.Query( "INSERT INTO house_data ( ID, en_X, en_Y, en_Z, en_tX, en_tY, en_tZ, ex_X, ex_Y, ex_Z, ex_tX, ex_tY, ex_tZ, int, dim, cost, owner, key ) VALUES ( "..ID..", "..eX..", "..eY..", "..eZ..", "..etX..", "..etY..", "..etZ..", "..exX..", "..exY..", "..exZ..", "..extX..", "..extY..", "..extZ..", "..int..", "..dim..", "..cost..", '', '' )" );
   end;
   
-  local m_Enter = createMarker( eX, eY, eZ - 1, 'cylinder', 1.25, 0, 153, 255, 150 );
+  local m_Enter = createMarker( eX, eY, eZ - 1, 'cylinder', 1.25, 255, 153, 255, 150 );
   setElementData( m_Enter, 'HS_INFO', { etX, etY, etZ, int, dim, cost, owner, key, ID } );
+  setElementDimension(m_Enter,1)
   
   if getElementData( m_Enter, 'HS_INFO' )[7] ~= '' then
     setMarkerColor( m_Enter, 255, 51, 36, 150 );
@@ -107,7 +108,7 @@ function createHouse( add, ID, owner, key, eX, eY, eZ, etX, etY, etZ, exX, exY, 
         local x, y, z = getElementData( mrk, 'extX' ), getElementData( mrk, 'extY' ), getElementData( mrk, 'extZ' );
         setElementPosition( player, x, y, z );
         setElementInterior( player, 0 );
-        setElementDimension( player, 0 );
+        setElementDimension( player, 1 );
         toggleAllControls( player, true );
         fadeCamera( player, true );
       end, 1200, 1, player, source );
