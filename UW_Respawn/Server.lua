@@ -76,12 +76,14 @@ addCommandHandler("spawnBase",spawnType,_,false)
 
 
 ---Spawn al momento del join
--- function onJoinPlayer ()
+function onJoinPlayer ()
 	-- spawn(source, 0.0, 0.0, 600.0, 90.0)
 	-- setElementData(source,"spawnBase",true)
 	-- setTimer(giveWeapon,1000,1,source,46)
--- end
--- addEventHandler ( "onPlayerJoin", root, onJoinPlayer )
+	fadeCamera(source,true)
+	-- outputChatBox("Joined",source)
+end
+addEventHandler ( "onPlayerJoin", root, onJoinPlayer )
 
 
 function spawn(player,x,y,z,rotation,skin,interior,dimension)
