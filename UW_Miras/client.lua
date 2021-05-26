@@ -43,7 +43,8 @@ addEventHandler("onClientResourceStart", resourceRoot,
     end
 )
 
-bindKey('F7', 'down', function()
+-- bindKey('F7', 'down', function()
+function miras()
 	if guiGetVisible(GUIEditor.window[1]) then
 		guiSetVisible(GUIEditor.window[1], false)
 		showCursor(false)
@@ -51,4 +52,6 @@ bindKey('F7', 'down', function()
 		guiSetVisible(GUIEditor.window[1], true)
 		showCursor(true)
 	end
-end)
+end
+addCommandHandler("Miras",miras,false)
+-- end)
