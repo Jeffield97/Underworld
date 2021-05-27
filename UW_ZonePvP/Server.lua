@@ -17,14 +17,14 @@ addEventHandler("onMarkerHit", playerMarker, handlePlayerMarker)
 function teleportPlayer(player,x,y,z)
 	fadeCamera ( player, false,0.5)
 	setTimer( function()
-
+			setElementDimension(player,1)
 			setElementPosition(player,x,y,z)
 			fadeCamera(player,true)
 			setElementVelocity(player,0,0,0)
 			setElementAngularVelocity (player, 0,0,2 )
 			setElementVelocity(player,0,0,0.18)
-			setElementDimension ( player,0)
-			setElementDimension(player,1)
+			-- setElementDimension ( player,0)
+			
 		 end, 700,1)
 end
 
@@ -42,6 +42,7 @@ function hill_Enter ( thePlayer, matchingDimension )
 					outputChatBox("Arma asignada: "..getWeaponNameFromID (weapon))
 					giveWeapon(thePlayer,weapon,1000)
 				end
+				setElementData(thePlayer,"ZoneWar","Yes")
 			end
         end
 end
@@ -55,6 +56,7 @@ function hill_Exit ( thePlayer, matchingDimension )
 		outputChatBox("Saliendo...")
 		teleportPlayer(thePlayer, 1117.533203125, -1482.51953125, 15.796875)
 		-- setElementDimension(thePlayer,1)
+		setElementData(thePlayer,"ZoneWar","No")
 		LoadWeapons(acc,thePlayer)
 	end
 end
