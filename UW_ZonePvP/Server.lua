@@ -1,8 +1,9 @@
 local hillArea = createColCuboid (  1119.716796875, -1809.0517578125, 32.629001617432,5,5,5)
+setElementDimension(hillArea,1)
 local weaponsEnable={24,31}
 
 
-local playerMarker = createMarker(1139.76171875, -1813.3447265625, 33.629001617432, "cylinder", 0.5, 10, 244, 23, 0)
+local playerMarker = createMarker(1119.7529296875, -1482.462890625, 15.796875, "cylinder", 0.5, 10, 244, 23, 0)
 
 function handlePlayerMarker(hitElement)
 	local elementType = getElementType(hitElement)
@@ -23,6 +24,7 @@ function teleportPlayer(player,x,y,z)
 			setElementAngularVelocity (player, 0,0,2 )
 			setElementVelocity(player,0,0,0.18)
 			setElementDimension ( player,0)
+			setElementDimension(player,1)
 		 end, 700,1)
 end
 
@@ -51,7 +53,8 @@ function hill_Exit ( thePlayer, matchingDimension )
 		local acc=getPlayerAccount(thePlayer)
 		setAccountData(acc,"Zone","No")
 		outputChatBox("Saliendo...")
-		teleportPlayer(thePlayer,1143.0146484375, -1814.5546875, 33.629001617432)
+		teleportPlayer(thePlayer, 1117.533203125, -1482.51953125, 15.796875)
+		-- setElementDimension(thePlayer,1)
 		LoadWeapons(acc,thePlayer)
 	end
 end

@@ -1,5 +1,6 @@
 <meta>
-<info author="pc_hunter" version="1.0" description="Descripción de la plantilla" type="script" />
-<script src="Server.lua" type="server" />
-<script src="Client.lua" type="client" />
+    <info author="pc_hunter" version="1.0" description="Descripción de la plantilla" type="script" />
+    <min_mta_version server="1.5.5-9.14060"></min_mta_version>
+    <script src="Server.lua" type="server" />
+    <script src="Client.lua" type="client" />
 </meta>
