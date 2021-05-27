@@ -74,7 +74,8 @@ function WindowSkin()
 			if Selected ~= -1 then 
 				SkinSelected= dgsGridListGetItemText(skinListM,Selected,columnM)
 				-- outputChatBox(""..SkinSelected.."",255,0,0)
-				setElementModel(localPlayer,SkinSelected)
+				-- setElementModel(localPlayer,SkinSelected)
+				triggerServerEvent ( "setSkin", resourceRoot,SkinSelected)
 				
 			end
 		end

@@ -12,3 +12,9 @@ function handlePlayerMarker(hitElement)
 	
 end
 addEventHandler("onMarkerHit", playerMarker, handlePlayerMarker)
+
+function setSkin(skin)
+	setElementModel(client,skin)
+end
+addEvent("setSkin",true)
+addEventHandler("setSkin",resourceRoot,setSkin)
