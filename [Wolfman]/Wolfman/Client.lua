@@ -60,7 +60,10 @@ end
 function Destransformar()
 	outputChatBox("Destransformando")
 	setElementData(localPlayer,"Transformed",false)
-	
+	toggleControl("next_weapon",true)
+	toggleControl("previous_weapon",true)
+	toggleControl("enter_exit",true)
+	toggleControl("enter_passenger",true)
 	------
 	-- setGameSpeed(1)
 	setWorldSpecialPropertyEnabled( "extrajump",false)
