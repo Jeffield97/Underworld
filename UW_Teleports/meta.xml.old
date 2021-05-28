@@ -1,0 +1,13 @@
+<meta>
+	<info name="VDP Recarregar Vida" author="~#Brown^" type="script" version="1.0" description="Recarregar Vida" />
+	<script src="client.lua" type="client" />
+	<script src="server.lua" type="server" />
+
+	<file src="files/img/mark1.png" />
+	<file src="files/img/mark2.png" />
+	<file src="files/img/mark3.png" />
+	<file src="files/img/mark4.png" />
+	<file src="font.ttf" />
+
+	<min_mta_version client="1.3.3" server="1.3.3" />
+</meta>
