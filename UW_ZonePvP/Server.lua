@@ -3,44 +3,6 @@ setElementDimension(hillArea,1)
 local weaponsEnable={24,31}
 
 
-local playerMarker = createMarker(1119.7529296875, -1482.462890625, 15.796875, "cylinder", 0.5, 10, 244, 23, 0)
-local playerMarkerQuit = createMarker(-977.931640625, 1053.1298828125, 1344.15907226562, "cylinder", 1, 10, 244, 23, 255)
-setElementInterior(playerMarkerQuit,10)
-setElementDimension(playerMarkerQuit,1)
-
-function handlePlayerMarker(hitElement)
-	local elementType = getElementType(hitElement)
-	if elementType == "player" then
-		outputChatBox("Element ("..elementType..") has entered marker.")
-		teleportPlayer(hitElement,-973.6103515625, 1061.0419921875, 1345.6732177734,1,10)
-		-- setElementInterior(hitElement,10)
-	end
-end
-addEventHandler("onMarkerHit", playerMarker, handlePlayerMarker)
-
-function handlePlayerMarker2(hitElement)
-	local elementType = getElementType(hitElement)
-	if elementType == "player" then
-		outputChatBox("Element ("..elementType..") has entered marker.")
-		teleportPlayer(hitElement,1115.544921875, -1482.6015625, 15.796875,1,10)
-		-- setElementInterior(hitElement,10)
-	end
-end
-addEventHandler("onMarkerHit", playerMarkerQuit, handlePlayerMarker2)
-
-function teleportPlayer(player,x,y,z,dimension,interior)
-	fadeCamera ( player, false,0.5)
-	setTimer( function()
-			setElementDimension(player,dimension or 1)
-			setElementPosition(player,x,y,z)
-			fadeCamera(player,true)
-			setElementVelocity(player,0,0,0)
-			setElementAngularVelocity (player, 0,0,2 )
-			setElementVelocity(player,0,0,0.18)
-			setElementInterior ( player,interior or 0)
-		 end, 700,1)
-end
-
 
 function hill_Enter ( thePlayer, matchingDimension )
         if getElementType ( thePlayer ) == "player" then --if the element that entered was player
@@ -67,7 +29,7 @@ function hill_Exit ( thePlayer, matchingDimension )
 		local acc=getPlayerAccount(thePlayer)
 		setAccountData(acc,"Zone","No")
 		outputChatBox("Saliendo...")
-		teleportPlayer(thePlayer, 1117.533203125, -1482.51953125, 15.796875,1,0)
+		-- teleportPlayer(thePlayer, 1117.533203125, -1482.51953125, 15.796875,1,0)
 		-- setElementDimension(thePlayer,1)
 		setElementData(thePlayer,"ZoneWar","No")
 		LoadWeapons(acc,thePlayer)
