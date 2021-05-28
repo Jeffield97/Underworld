@@ -1,6 +1,6 @@
 loadstring(exports.dgs:dgsImportFunction())()
 
-local sound = playSound("soundtrack.mp3")
+local sound = playSound("soundtrack.mp3",true)
 setSoundVolume(sound,1)
 function Uw_Login()
 	local screenW, screenH = guiGetScreenSize() 
@@ -319,7 +319,8 @@ function CerrarRegistro()
 	setCameraTarget(getLocalPlayer())
 	showCursor(false)
 	showChat(true)
-	setPlayerHudComponentVisible ( "all",true)
+	setPlayerHudComponentVisible ( "radar",true)
+	setPlayerHudComponentVisible ( "crosshair",true)
 	guiSetInputEnabled(false)
 end
 addEvent("CerrarRegistro",true)
