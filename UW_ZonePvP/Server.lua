@@ -1,30 +1,43 @@
-local hillArea = createColCuboid (  1119.716796875, -1809.0517578125, 32.629001617432,5,5,5)
+local hillArea = createColCuboid (  -1137.560546875, 1018.7021484375, 1339.1188964844,170,82,20)
 setElementDimension(hillArea,1)
 local weaponsEnable={24,31}
 
 
 local playerMarker = createMarker(1119.7529296875, -1482.462890625, 15.796875, "cylinder", 0.5, 10, 244, 23, 0)
+local playerMarkerQuit = createMarker(-977.931640625, 1053.1298828125, 1344.15907226562, "cylinder", 1, 10, 244, 23, 255)
+setElementInterior(playerMarkerQuit,10)
+setElementDimension(playerMarkerQuit,1)
 
 function handlePlayerMarker(hitElement)
 	local elementType = getElementType(hitElement)
 	if elementType == "player" then
 		outputChatBox("Element ("..elementType..") has entered marker.")
-		teleportPlayer(hitElement,1122.2529296875, -1806.6103515625, 33.628616333008)
+		teleportPlayer(hitElement,-973.6103515625, 1061.0419921875, 1345.6732177734,1,10)
+		-- setElementInterior(hitElement,10)
 	end
 end
 addEventHandler("onMarkerHit", playerMarker, handlePlayerMarker)
 
-function teleportPlayer(player,x,y,z)
+function handlePlayerMarker2(hitElement)
+	local elementType = getElementType(hitElement)
+	if elementType == "player" then
+		outputChatBox("Element ("..elementType..") has entered marker.")
+		teleportPlayer(hitElement,1115.544921875, -1482.6015625, 15.796875,1,10)
+		-- setElementInterior(hitElement,10)
+	end
+end
+addEventHandler("onMarkerHit", playerMarkerQuit, handlePlayerMarker2)
+
+function teleportPlayer(player,x,y,z,dimension,interior)
 	fadeCamera ( player, false,0.5)
 	setTimer( function()
-			setElementDimension(player,1)
+			setElementDimension(player,dimension or 1)
 			setElementPosition(player,x,y,z)
 			fadeCamera(player,true)
 			setElementVelocity(player,0,0,0)
 			setElementAngularVelocity (player, 0,0,2 )
 			setElementVelocity(player,0,0,0.18)
-			-- setElementDimension ( player,0)
-			
+			setElementInterior ( player,interior or 0)
 		 end, 700,1)
 end
 
@@ -54,7 +67,7 @@ function hill_Exit ( thePlayer, matchingDimension )
 		local acc=getPlayerAccount(thePlayer)
 		setAccountData(acc,"Zone","No")
 		outputChatBox("Saliendo...")
-		teleportPlayer(thePlayer, 1117.533203125, -1482.51953125, 15.796875)
+		teleportPlayer(thePlayer, 1117.533203125, -1482.51953125, 15.796875,1,0)
 		-- setElementDimension(thePlayer,1)
 		setElementData(thePlayer,"ZoneWar","No")
 		LoadWeapons(acc,thePlayer)
