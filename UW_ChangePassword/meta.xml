@@ -1,0 +1,5 @@
+<meta>
+	<info author="lLinux" name="Change-Password" type="script" version="1.0" />
+	<script src="change_c.lua" type="client" />
+	<script src="change_s.lua" type="server" />
+</meta>
